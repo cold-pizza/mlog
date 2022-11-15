@@ -5,6 +5,7 @@ import { Route, Switch } from "react-router-dom";
 import Main from "./view/main/index";
 import Login from "./view/login";
 import SignUp from "./view/signup";
+import MyProfile from "./view/myProfile";
 
 function App() {
     return (
@@ -13,6 +14,7 @@ function App() {
                 <Route path="/" exact render={() => <Main />} />
                 <Route path="/login" render={() => <Login />} />
                 <Route path="/signup" render={() => <SignUp />} />
+                <Route path="/myprofile" render={() => <MyProfile />} />
             </Switch>
         </div>
     );
