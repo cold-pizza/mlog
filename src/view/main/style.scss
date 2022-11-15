@@ -1,5 +1,6 @@
 .main {
     .nav {
+        position: relative;
         margin-top: 10px;
         margin-bottom: 40px;
         width: 100%;
@@ -7,6 +8,16 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        .profile-box {
+            border: 1px solid black;
+            position: absolute;
+            top: 60px;
+            right: -10px;
+            li {
+                font-size: 14px;
+                margin-bottom: 10px;
+            }
+        }
         .nav-logo img {
             width: 50px;
             height: 50px;

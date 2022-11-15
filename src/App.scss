@@ -4,11 +4,18 @@
     padding: 0px;
     box-sizing: border-box;
 }
+span {
+    user-select: none;
+}
 
 ul,
 ol {
     list-style: none;
     outline: none;
+}
+li {
+    user-select: none;
+    cursor: pointer;
 }
 
 a {

@@ -1,6 +1,11 @@
+import { useState } from "react";
+import { useHistory } from "react-router-dom";
+
 import "./style.scss";
 
 const Main = function () {
+    const history = useHistory();
+    const [profileSwitch, setProfileSwitch] = useState(false);
     return (
         <div className="main">
             <nav className="nav">
@@ -10,11 +15,33 @@ const Main = function () {
                 <section className="nav-item">
                     <div className="nav-search">검색</div>
                     <div className="nav-writing">글 쓰기</div>
-                    <div className="nav-profile">프로필</div>
+                    <div
+                        className="nav-profile"
+                        onClick={() => setProfileSwitch(!profileSwitch)}
+                    >
+                        프로필
+                    </div>
                 </section>
+                {profileSwitch ? (
+                    <ul className="profile-box">
+                        <li>내 게시글</li>
+                        <li>임시 글</li>
+                        <li>즐겨찾기</li>
+                        <li>프로필 설정</li>
+                        <li
+                            onClick={() => {
+                                setProfileSwitch(!profileSwitch);
+                                history.push("/login");
+                            }}
+                        >
+                            로그인
+                        </li>
+                    </ul>
+                ) : null}
             </nav>
             <span>다양한 MBTI가 모여서 대화하는 블로그입니다.</span>
-            <section className="category">카테고리..</section>
+            <div>⭐️카테고리 추가 예정⭐️</div>
+            {/* <section className="category">카테고리..</section> */}
             <section className="post-list">
                 <div className="post">
                     <div className="post-info">
