@@ -1,0 +1,39 @@
+@import "../../App.scss";
+.myprofile {
+    @include flexCol;
+    .myprofile-box {
+        width: 1000px;
+        .myprofile-info {
+            width: 1000px;
+            height: 150px;
+            border-bottom: 1px solid $main-gary;
+            @include flexRow;
+            margin-bottom: 60px;
+            .myprofile-image {
+                width: 100px;
+                height: 100px;
+                background: $main-gary;
+                margin-right: 20px;
+                border-radius: 50%;
+            }
+            .myprofile-meta-info {
+                display: flex;
+                flex-direction: column;
+                .nick-name {
+                    font-size: 24px;
+                    margin-bottom: 4px;
+                }
+                .coment {
+                    font-size: 18px;
+                    color: $main-gary;
+                }
+            }
+        }
+        .my-post-tag {
+            width: 100%;
+            @include flexRow;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+    }
+}

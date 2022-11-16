@@ -1,0 +1,40 @@
+@import "../../App.scss";
+.post-contents {
+    @include flexCol;
+    .post-contents-box {
+        @include flexCol;
+        margin-top: 40px;
+        .post-contents-info {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: left;
+            .post-contents-title {
+                font-size: 60px;
+                margin-bottom: 40px;
+                color: $main-gary;
+            }
+            .post-conents-meta-info {
+                width: 100%;
+                text-align: left;
+                span:nth-child(1) {
+                    margin-right: 10px;
+                }
+            }
+        }
+        .post-contents-image {
+            width: 1000px;
+            height: 300px;
+            border: 1px solid $main-gary;
+            margin-bottom: 100px;
+        }
+        .post-contents-writing {
+            width: 800px;
+            text-align: left;
+            span {
+                color: $main-gary;
+            }
+        }
+    }
+}

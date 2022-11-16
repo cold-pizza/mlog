@@ -7,12 +7,22 @@ const Nav = function () {
     const [profileSwitch, setProfileSwitch] = useState(false);
     return (
         <div className="nav">
-            <div className="nav-logo">
+            <div onClick={() => history.push("/")} className="nav-logo">
                 <img src="/images/mlog-logo.png" alt="#" />
             </div>
             <section className="nav-item">
-                <div className="nav-search">검색</div>
-                <div className="nav-writing">글 쓰기</div>
+                <div
+                    className="nav-search"
+                    onClick={() => history.push("/search")}
+                >
+                    검색
+                </div>
+                <div
+                    className="nav-writing"
+                    onClick={() => history.push("/postwrite")}
+                >
+                    글 쓰기
+                </div>
                 <div
                     className="nav-profile"
                     onClick={() => setProfileSwitch(!profileSwitch)}
