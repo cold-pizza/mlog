@@ -44,11 +44,24 @@ const Nav = function () {
                     </li>
                     <li
                         onClick={() => {
-                            setProfileSwitch(!profileSwitch);
-                            history.push("/login");
+                            if (localStorage.user) {
+                                alert("이미 로그인 되었습니다.");
+                                return;
+                            } else {
+                                setProfileSwitch(!profileSwitch);
+                                history.push("/login");
+                            }
                         }}
                     >
                         로그인
+                    </li>
+                    <li
+                        onClick={() => {
+                            localStorage.clear();
+                            history.push("/login");
+                        }}
+                    >
+                        로그아웃
                     </li>
                 </ul>
             ) : null}

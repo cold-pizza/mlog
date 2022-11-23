@@ -1,16 +1,46 @@
+import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import onChange from "../../controller/onChange";
+import login from "../../controller/login";
 import "./style.scss";
 
 const Login = function () {
+    const [loginInput, setLoginInput] = useState({ email: "", password: "" });
+    console.log(loginInput);
     const history = useHistory();
     return (
         <div className="login">
             <div className="login-box">
                 <header className="login-logo">Mlog</header>
-                <form action="#" className="login-form">
-                    <input type="email" placeholder="이메일" />
-                    <input type="password" placeholder="비밀번호" />
-                    <button type="button">로그인</button>
+                <form
+                    // action="/api/login-form"
+                    className="login-form"
+                    method="POST"
+                >
+                    <input
+                        onChange={(e) => onChange(e, loginInput, setLoginInput)}
+                        name="email"
+                        type="email"
+                        placeholder="이메일"
+                    />
+                    <input
+                        onChange={(e) => onChange(e, loginInput, setLoginInput)}
+                        name="password"
+                        type="password"
+                        placeholder="비밀번호"
+                    />
+                    <button
+                        onClick={() =>
+                            login(
+                                loginInput.email,
+                                loginInput.password,
+                                history
+                            )
+                        }
+                        type="button"
+                    >
+                        로그인
+                    </button>
                 </form>
                 {/* <p className="or">또는</p> */}
                 {/* <button className="login-google" type="button">
