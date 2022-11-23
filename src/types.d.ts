@@ -23,5 +23,11 @@ export type Login = (
 ) => void;
 
 export interface Signup {
-    (nickName: string, email: string, pw: string, tel: string): void;
+    (
+        nickName: string,
+        email: string,
+        pw: string,
+        tel: string,
+        history: History<unknown>
+    ): void;
 }

@@ -69,7 +69,7 @@ const SignUp = function () {
                     />
                     <button
                         onClick={() => {
-                            signup(nickName, email, password, tel);
+                            signup(nickName, email, password, tel, history);
                         }}
                         className="signup-btn"
                         type="button"
