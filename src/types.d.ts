@@ -31,3 +31,5 @@ export interface Signup {
         history: History<unknown>
     ): void;
 }
+
+export type Logout = (history: History<unknown>) => void;

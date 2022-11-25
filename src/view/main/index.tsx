@@ -11,6 +11,7 @@ import axios from "axios";
 const Main = function () {
     const [account, setAccount] = useState<Account>();
     useEffect(() => {
+        // localStorage.removeItem("user");
         const userStr = localStorage.getItem("user");
         if (typeof userStr === "string") {
             const user = JSON.parse(userStr);

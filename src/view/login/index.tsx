@@ -6,7 +6,7 @@ import "./style.scss";
 
 const Login = function () {
     const [loginInput, setLoginInput] = useState({ email: "", password: "" });
-    console.log(loginInput);
+    // console.log(loginInput);
     const history = useHistory();
     return (
         <div className="login">

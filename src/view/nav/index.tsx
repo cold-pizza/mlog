@@ -2,6 +2,8 @@ import { useHistory } from "react-router";
 import { useState } from "react";
 import "./style.scss";
 
+import logout from "../../controller/logout";
+
 const Nav = function () {
     const history = useHistory();
     const [profileSwitch, setProfileSwitch] = useState(false);
@@ -44,21 +46,22 @@ const Nav = function () {
                     </li>
                     <li
                         onClick={() => {
-                            if (localStorage.user) {
-                                alert("이미 로그인 되었습니다.");
-                                return;
-                            } else {
-                                setProfileSwitch(!profileSwitch);
-                                history.push("/login");
-                            }
+                            // if (localStorage.user) {
+                            //     alert("이미 로그인 되었습니다.");
+                            //     return;
+                            // } else {
+                            setProfileSwitch(!profileSwitch);
+                            history.push("/login");
+                            // }
                         }}
                     >
                         로그인
                     </li>
                     <li
                         onClick={() => {
-                            localStorage.clear();
-                            history.push("/login");
+                            logout(history);
+                            // localStorage.clear();
+                            // history.push("/login");
                         }}
                     >
                         로그아웃
