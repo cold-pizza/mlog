@@ -55,11 +55,8 @@ app.post("/api/login-form", (req, res) => {
                 if (result.length) {
                     if (result[0].pw === pw) {
                         req.session.user = result[0];
-                        // res.send(req.session.user);
-                        req.session.save(() => {
-                            res.send("로그인 성공");
-                        });
-                        console.log(req.session);
+                        res.send(req.session.user);
+                        // console.log(req.session);
                         console.log("------ 로그인 성공 -------");
                     } else {
                         console.log("비밀번호가 다릅니다.");
@@ -84,10 +81,10 @@ app.post("/api/logout", (req, res) => {
 
 app.post("/api/signup-form", (req, res) => {
     const { id, nickName, email, pw, tel, profileNum } = req.body;
-    var sql = "INSERT INTO userList VALUES (?, ?, ?, ?, ?, ?, ?)";
+    var sql = "INSERT INTO userList VALUES (?, ?, ?, ?, ?, ?)";
     connection.query(
         sql,
-        [id, email, nickName, pw, tel, profileNum, null],
+        [id, email, nickName, pw, tel, profileNum],
         (err, result) => {
             if (err) console.log(err);
             console.log(result);

@@ -24,11 +24,17 @@
     .nav-item {
         display: flex;
         flex-direction: row;
+        align-items: center;
         div {
             cursor: pointer;
             user-select: none;
             margin-left: 20px;
             font-size: 14px;
+        }
+        .profile-image {
+            width: 50px;
+            height: 50px;
+            margin-left: 8px;
         }
     }
 }

@@ -32,4 +32,4 @@ export interface Signup {
     ): void;
 }
 
-export type Logout = (history: History<unknown>) => void;
+export type Logout = () => void;

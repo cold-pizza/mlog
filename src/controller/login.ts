@@ -12,11 +12,19 @@ const login: Login = function (email, pw, history) {
             })
             .then((res) => {
                 console.log(res);
+                const email = res.data.email;
+                const profileImg = res.data.profileImg;
+                const nickName = res.data.nickName;
+                const user = {
+                    email,
+                    profileImg,
+                    nickName,
+                };
+                localStorage.setItem("user", JSON.stringify(user));
+                window.location.reload();
             })
+
             .catch((err) => console.log(err));
-        // console.log("로그인 성공");
-        // localStorage.setItem("user", JSON.stringify(res.data));
-        // console.log(res.data);
         history.push("/");
     }
 };

@@ -10,21 +10,22 @@ import axios from "axios";
 
 const Main = function () {
     const [account, setAccount] = useState<Account>();
+
     useEffect(() => {
-        // localStorage.removeItem("user");
         const userStr = localStorage.getItem("user");
         if (typeof userStr === "string") {
             const user = JSON.parse(userStr);
-            console.log(user);
+            setAccount(user);
         }
     }, []);
     return (
         <div className="main">
             <Nav />
-            <span>다양한 MBTI가 모여서 대화하는 블로그입니다.</span>
-            <div>⭐️카테고리 추가 예정⭐️</div>
-            <div>{account ? account.pw : null}</div>
-            {/* <section className="category">카테고리..</section> */}
+            <span>
+                {account
+                    ? `반갑습니다. ${account.nickName} 님이 로그인 하셨습니다!`
+                    : "데이터가 없습니다. 로그인 또는 로컬스토리지를 확인해주세요."}
+            </span>
             <Post />
             <Post />
             <Post />

@@ -5,6 +5,13 @@ import "./style.scss";
 import logout from "../../controller/logout";
 
 const Nav = function () {
+    const proflieImgList = [
+        "/images/user-solid.svg",
+        "/images/cat-solid.svg",
+        "/images/dog-solid.svg",
+        "/images/dragon-solid.svg",
+        "/images/github.svg",
+    ];
     const history = useHistory();
     const [profileSwitch, setProfileSwitch] = useState(false);
     return (
@@ -25,12 +32,25 @@ const Nav = function () {
                 >
                     글 쓰기
                 </div>
-                <div
-                    className="nav-profile"
-                    onClick={() => setProfileSwitch(!profileSwitch)}
-                >
-                    프로필
-                </div>
+                {localStorage.user ? (
+                    <img
+                        onClick={() => setProfileSwitch(!profileSwitch)}
+                        className="profile-image"
+                        src={
+                            proflieImgList[
+                                JSON.parse(localStorage.user).profileImg
+                            ]
+                        }
+                        alt="#"
+                    />
+                ) : (
+                    <div
+                        className="nav-profile"
+                        onClick={() => setProfileSwitch(!profileSwitch)}
+                    >
+                        프로필
+                    </div>
+                )}
             </section>
             {profileSwitch ? (
                 <ul className="profile-box">
@@ -44,28 +64,29 @@ const Nav = function () {
                     >
                         내 프로필
                     </li>
-                    <li
-                        onClick={() => {
-                            // if (localStorage.user) {
-                            //     alert("이미 로그인 되었습니다.");
-                            //     return;
-                            // } else {
-                            setProfileSwitch(!profileSwitch);
-                            history.push("/login");
-                            // }
-                        }}
-                    >
-                        로그인
-                    </li>
-                    <li
-                        onClick={() => {
-                            logout(history);
-                            // localStorage.clear();
-                            // history.push("/login");
-                        }}
-                    >
-                        로그아웃
-                    </li>
+                    {!localStorage.user ? (
+                        <li
+                            onClick={() => {
+                                if (localStorage.user) {
+                                    alert("이미 로그인 되었습니다.");
+                                    return;
+                                } else {
+                                    setProfileSwitch(!profileSwitch);
+                                    history.push("/login");
+                                }
+                            }}
+                        >
+                            로그인
+                        </li>
+                    ) : (
+                        <li
+                            onClick={() => {
+                                logout();
+                            }}
+                        >
+                            로그아웃
+                        </li>
+                    )}
                 </ul>
             ) : null}
         </div>
