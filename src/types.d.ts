@@ -34,7 +34,4 @@ export interface Signup {
 
 export type Logout = () => void;
 
-export type IdEncryption = (
-    state: undefined[],
-    setState: SetStateAction
-) => void;
+export type IdEncryption = (email: string) => string;

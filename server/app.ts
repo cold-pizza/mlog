@@ -81,10 +81,15 @@ app.post("/api/logout", (req, res) => {
 
 app.post("/api/signup-form", (req, res) => {
     const { id, nickName, email, pw, tel, profileNum } = req.body;
+    const idFront = email.split("@")[0];
+    let idList = "";
+    for (let i = 0; i < idFront.length; i++) {
+        idList = idList + `${idFront.charCodeAt(i) * 78}`;
+    }
     var sql = "INSERT INTO userList VALUES (?, ?, ?, ?, ?, ?)";
     connection.query(
         sql,
-        [id, email, nickName, pw, tel, profileNum],
+        [idList, email, nickName, pw, tel, profileNum],
         (err, result) => {
             if (err) console.log(err);
             console.log(result);

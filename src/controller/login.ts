@@ -12,10 +12,12 @@ const login: Login = function (email, pw, history) {
             })
             .then((res) => {
                 console.log(res);
+                const id = res.data.id;
                 const email = res.data.email;
                 const profileImg = res.data.profileImg;
                 const nickName = res.data.nickName;
                 const user = {
+                    id,
                     email,
                     profileImg,
                     nickName,
