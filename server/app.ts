@@ -61,7 +61,6 @@ app.post("/api/user/logout", (req, res) => {
     console.log("로그아웃 중입니다.");
     req.session.destroy((err) => {
         if (err) throw err;
-        // console.log("세션 삭제");
         console.log(req.session);
         res.send("세션 삭제 - 로그아웃 되었습니다.");
     });
@@ -96,6 +95,7 @@ app.post("/api/post/publishing", (req, res) => {
         (err, result) => {
             if (err) console.log(err);
             console.log(result);
+            console.log("글이 발행되었습니다.");
             res.send("글이 발행되었습니다.");
         }
     );
