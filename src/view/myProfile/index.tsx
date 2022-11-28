@@ -4,14 +4,27 @@ import Nav from "../nav";
 import Post from "../post";
 
 const MyProfile = function () {
+    const profileImgList = [
+        "/images/user-solid.svg",
+        "/images/cat-solid.svg",
+        "/images/dog-solid.svg",
+        "/images/dragon-solid.svg",
+        "/images/github.svg",
+    ];
+    const profileImg = JSON.parse(localStorage.user).profileImg;
+    const nickName = JSON.parse(localStorage.user).nickName;
     return (
         <div className="myprofile">
             <Nav />
             <section className="myprofile-box">
                 <div className="myprofile-info">
-                    <img className="myprofile-image" src="#" alt="#" />
+                    <img
+                        className="myprofile-image"
+                        src={profileImgList[profileImg]}
+                        alt="#"
+                    />
                     <div className="myprofile-meta-info">
-                        <span className="nick-name">닉네임</span>
+                        <span className="nick-name">{nickName}</span>
                         <span className="coment">코멘트</span>
                     </div>
                 </div>

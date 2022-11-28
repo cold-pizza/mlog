@@ -3,9 +3,10 @@ import { useState } from "react";
 import "./style.scss";
 
 import logout from "../../controller/logout";
+import { PostWriteProps } from "../../types";
 
 const Nav = function () {
-    const proflieImgList = [
+    const profileImgList = [
         "/images/user-solid.svg",
         "/images/cat-solid.svg",
         "/images/dog-solid.svg",
@@ -14,6 +15,8 @@ const Nav = function () {
     ];
     const history = useHistory();
     const [profileSwitch, setProfileSwitch] = useState(false);
+    const pathName = window.location.pathname;
+
     return (
         <div className="nav">
             <div onClick={() => history.push("/")} className="nav-logo">
@@ -26,18 +29,28 @@ const Nav = function () {
                 >
                     검색
                 </div>
-                <div
-                    className="nav-writing"
-                    onClick={() => history.push("/postwrite")}
-                >
-                    글 쓰기
-                </div>
+                {pathName === "/postwrite" ? (
+                    <div
+                        onClick={() => {
+                            // publishing()
+                        }}
+                    >
+                        발행하기
+                    </div>
+                ) : (
+                    <div
+                        className="nav-writing"
+                        onClick={() => history.push("/postwrite")}
+                    >
+                        글 쓰기
+                    </div>
+                )}
                 {localStorage.user ? (
                     <img
                         onClick={() => setProfileSwitch(!profileSwitch)}
                         className="profile-image"
                         src={
-                            proflieImgList[
+                            profileImgList[
                                 JSON.parse(localStorage.user).profileImg
                             ]
                         }

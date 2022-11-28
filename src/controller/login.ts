@@ -6,7 +6,7 @@ const login: Login = function (email, pw, history) {
     if (!pw) alert("비밀번호를 입력해주세요.");
     else {
         axios
-            .post("http://localhost:3010/api/login-form", {
+            .post("http://localhost:3010/api/user/login-form", {
                 email,
                 pw,
             })

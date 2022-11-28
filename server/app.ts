@@ -30,19 +30,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
-// const userList = connection.query("select * from userList", (err, results) => {
-//     if (err) {
-//         // console.log("select userList error!");
-//         throw err;
-//     }
-//     return results;
-// });
-
-// app.get("/api/userlist", (req, res) => {
-//     res.send(userList._rows[0][0]);
-// });
-
-app.post("/api/login-form", (req, res) => {
+app.post("/api/user/login-form", (req, res) => {
     const { email, pw } = req.body;
     if (req.session.user?.email === email) {
         res.send("이미 로그인되어있습니다.");
@@ -68,7 +56,7 @@ app.post("/api/login-form", (req, res) => {
     }
 });
 
-app.post("/api/logout", (req, res) => {
+app.post("/api/user/logout", (req, res) => {
     console.log(req.session);
     console.log("로그아웃 중입니다.");
     req.session.destroy((err) => {
@@ -79,8 +67,8 @@ app.post("/api/logout", (req, res) => {
     });
 });
 
-app.post("/api/signup-form", (req, res) => {
-    const { id, nickName, email, pw, tel, profileNum } = req.body;
+app.post("/api/user/signup-form", (req, res) => {
+    const { nickName, email, pw, tel, profileNum } = req.body;
     const idFront = email.split("@")[0];
     let idList = "";
     for (let i = 0; i < idFront.length; i++) {
@@ -95,6 +83,20 @@ app.post("/api/signup-form", (req, res) => {
             console.log(result);
             console.log("⭐️⭐️⭐️⭐️⭐️ 회원가입 성공 ⭐️⭐️⭐️⭐️⭐️⭐️");
             res.send("회원가입이 완료되었습니다.");
+        }
+    );
+});
+
+app.post("/api/post/publishing", (req, res) => {
+    const { postId, title, writer, days, contents } = req.body;
+    var sql = "INSERT INTO post VALUES (?, ?, ?, ?, ?, ?)";
+    connection.query(
+        sql,
+        [postId, title, writer, days, contents, 0],
+        (err, result) => {
+            if (err) console.log(err);
+            console.log(result);
+            res.send("글이 발행되었습니다.");
         }
     );
 });

@@ -1,4 +1,4 @@
-import React, { SetStateAction } from "react";
+import React, { SetStateAction, TextareaHTMLAttributes } from "react";
 
 export interface Account {
     id: string;
@@ -11,8 +11,10 @@ export interface Account {
 }
 
 export type OnChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    state: null | { email: string; password: string },
+    e:
+        | React.ChangeEvent<HTMLInputElement>
+        | React.ChangeEvent<TextareaHTMLAttributes>,
+    state: null | {},
     setState: SetStateAction
 ) => void;
 
@@ -34,4 +36,15 @@ export interface Signup {
 
 export type Logout = () => void;
 
-export type IdEncryption = (email: string) => string;
+export type Publishing = (
+    title: string,
+    contents: string,
+    history: History<unknown>
+) => void;
+
+export interface PostWriteProps {
+    title: string;
+    contents: string;
+}
+
+export type Today = () => string;

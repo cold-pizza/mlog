@@ -4,7 +4,7 @@ const signup: Signup = function (nickName, email, pw, tel, history) {
     const profileNum = Math.floor(Math.random() * 5);
     const id = email + nickName;
     axios
-        .post("http://localhost:3010/api/signup-form", {
+        .post("http://localhost:3010/api/user/signup-form", {
             id,
             nickName,
             email,
