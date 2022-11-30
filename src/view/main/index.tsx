@@ -35,9 +35,6 @@ const Main = function () {
             <p>11/28</p>
             <p>id 암호화</p>
             <Post />
-            <Post />
-            <Post />
-            <Post />
         </div>
     );
 };

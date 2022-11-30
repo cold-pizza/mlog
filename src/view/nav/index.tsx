@@ -29,13 +29,7 @@ const Nav = function () {
                     검색
                 </div>
                 {pathName === "/postwrite" ? (
-                    <div
-                        onClick={() => {
-                            // publishing()
-                        }}
-                    >
-                        발행하기
-                    </div>
+                    <div>글 쓰는중</div>
                 ) : (
                     <div
                         className="nav-writing"

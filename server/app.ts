@@ -8,10 +8,10 @@ const session = require("express-session");
 const memoryStore = require("memorystore")(session);
 
 var connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "Rjqeprl@4579",
-    database: "mlogDB",
+    host: process.env.REACT_APP_MYSQL_HOST,
+    user: process.env.REACT_APP_MYSQL_USER,
+    password: process.env.REACT_APP_MYSQL_PASSWORD,
+    database: process.env.REACT_APP_MYSQL_DATABASE,
 });
 
 const sessionObj = {
