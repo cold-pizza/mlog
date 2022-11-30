@@ -48,3 +48,12 @@ export interface PostWriteProps {
 }
 
 export type Today = () => string;
+
+export type PostType = {
+    postId: string;
+    title: string;
+    writer: string;
+    days: string;
+    contents: string;
+    viewCount: number;
+}[];

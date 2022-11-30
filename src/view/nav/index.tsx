@@ -3,7 +3,6 @@ import { useState } from "react";
 import "./style.scss";
 
 import logout from "../../controller/logout";
-import { PostWriteProps } from "../../types";
 
 const Nav = function () {
     const profileImgList = [
@@ -71,8 +70,12 @@ const Nav = function () {
                     {/* <li>즐겨찾기</li> */}
                     <li
                         onClick={() => {
-                            setProfileSwitch(!profileSwitch);
-                            history.push("/myprofile");
+                            if (!localStorage.user) {
+                                alert("로그인 해주세요.");
+                            } else {
+                                setProfileSwitch(!profileSwitch);
+                                history.push("/myprofile");
+                            }
                         }}
                     >
                         내 프로필

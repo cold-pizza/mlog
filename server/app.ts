@@ -101,6 +101,15 @@ app.post("/api/post/publishing", (req, res) => {
     );
 });
 
+app.get("/api/post", (req, res) => {
+    var sql = "SELECT * FROM post";
+    connection.query(sql, (err, result) => {
+        if (err) console.log(err);
+        // console.log(result);
+        res.send(result);
+    });
+});
+
 app.listen(port, () => {
     console.log(`Connect at http://localhost:${port}!!!`);
 });

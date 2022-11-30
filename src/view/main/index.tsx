@@ -5,11 +5,19 @@ import Nav from "../nav";
 import Post from "../post";
 
 import { Account } from "../../types";
+import axios from "axios";
 
 const Main = function () {
     const [account, setAccount] = useState<Account>();
 
     useEffect(() => {
+        axios
+            .get("http://localhost:3010/api/post")
+            .then((res) => {
+                // console.log(res);
+                localStorage.setItem("post", JSON.stringify(res.data));
+            })
+            .catch((err) => console.log(err));
         const userStr = localStorage.getItem("user");
         if (typeof userStr === "string") {
             const user = JSON.parse(userStr);
