@@ -54,6 +54,4 @@ export type PostType = {
     title: string;
     writer: string;
     days: string;
-    contents: string;
-    viewCount: number;
 }[];

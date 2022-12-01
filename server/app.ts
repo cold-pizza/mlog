@@ -1,6 +1,8 @@
+const dotenv = require("dotenv");
+dotenv.config();
 const express = require("express");
 const app = express();
-const port = 3010;
+const port = process.env.REACT_APP_API_PORT;
 const bodyParser = require("body-parser");
 const mysql = require("mysql2");
 const cors = require("cors");
@@ -8,14 +10,14 @@ const session = require("express-session");
 const memoryStore = require("memorystore")(session);
 
 var connection = mysql.createConnection({
-    host: process.env.REACT_APP_MYSQL_HOST,
-    user: process.env.REACT_APP_MYSQL_USER,
-    password: process.env.REACT_APP_MYSQL_PASSWORD,
-    database: process.env.REACT_APP_MYSQL_DATABASE,
+    host: process.env.REACT_APP_API_HOST,
+    user: process.env.REACT_APP_API_USER,
+    password: process.env.REACT_APP_API_PASSWORD,
+    database: process.env.REACT_APP_API_DATABASE,
 });
 
 const sessionObj = {
-    secret: "aafjklwaFE@#@WLSSF1!ADF",
+    secret: process.env.REACT_APP_SESSIONOBJ_SECRET,
     resave: false,
     saveUninitialized: true,
     store: new memoryStore({ checkPeriod: 1000 * 60 * 10 }),
@@ -102,11 +104,23 @@ app.post("/api/post/publishing", (req, res) => {
 });
 
 app.get("/api/post", (req, res) => {
-    var sql = "SELECT * FROM post";
+    var sql = "SELECT postId, title, writer, days FROM post";
     connection.query(sql, (err, result) => {
         if (err) console.log(err);
         // console.log(result);
         res.send(result);
+    });
+});
+
+app.post("/api/post/contents", (req, res) => {
+    const { apiKeyNickname, apiKeyDays } = req.body;
+    var sql =
+        "SELECT title, writer, days, contents FROM post WHERE days = ? and writer = ?";
+    connection.query(sql, [apiKeyDays, apiKeyNickname], (err, result) => {
+        if (err) console.log(err);
+        console.log(result);
+        // res.send(result);
+        res.send(result[0]);
     });
 });
 

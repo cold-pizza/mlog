@@ -11,8 +11,6 @@ const Post = function () {
             title: "",
             writer: "",
             days: "",
-            contents: "",
-            viewCount: 0,
         },
     ]);
     useEffect(() => {
@@ -28,9 +26,11 @@ const Post = function () {
             {post
                 ? post.map(({ title, days, postId, writer }) => {
                       return (
-                          <div className="post" key={postId}>
+                          <div className="post" key={title}>
                               <div
-                                  onClick={() => history.push("/postcontents")}
+                                  onClick={() =>
+                                      history.push(`/post/${writer}/${days}`)
+                                  }
                                   className="post-info"
                               >
                                   <div className="post-header">

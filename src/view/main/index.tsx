@@ -14,8 +14,10 @@ const Main = function () {
         axios
             .get("http://localhost:3010/api/post")
             .then((res) => {
-                // console.log(res);
-                localStorage.setItem("post", JSON.stringify(res.data));
+                localStorage.setItem(
+                    "post",
+                    JSON.stringify(res.data.reverse())
+                );
             })
             .catch((err) => console.log(err));
         const userStr = localStorage.getItem("user");

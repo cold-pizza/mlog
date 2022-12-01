@@ -18,7 +18,7 @@ function App() {
                 <Route path="/login" render={() => <Login />} />
                 <Route path="/signup" render={() => <SignUp />} />
                 <Route path="/myprofile" render={() => <MyProfile />} />
-                <Route path="/postcontents" render={() => <PostContents />} />
+                <Route path="/post/:id/:id" render={() => <PostContents />} />
                 <Route path="/search" render={() => <Search />} />
                 <Route path="/postwrite" render={() => <PostWrite />} />
             </Switch>
