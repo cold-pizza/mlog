@@ -32,7 +32,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
-app.post("/api/user/login-form", (req, res) => {
+app.post("/api/user/login", (req, res) => {
     const { email, pw } = req.body;
     if (req.session.user?.email === email) {
         res.send("이미 로그인되어있습니다.");
@@ -64,11 +64,11 @@ app.post("/api/user/logout", (req, res) => {
     req.session.destroy((err) => {
         if (err) throw err;
         console.log(req.session);
-        res.send("세션 삭제 - 로그아웃 되었습니다.");
+        res.send("로그아웃 되었습니다.");
     });
 });
 
-app.post("/api/user/signup-form", (req, res) => {
+app.post("/api/user/signup", (req, res) => {
     const { nickName, email, pw, tel, profileNum } = req.body;
     const idFront = email.split("@")[0];
     let idList = "";
@@ -88,7 +88,7 @@ app.post("/api/user/signup-form", (req, res) => {
     );
 });
 
-app.post("/api/post/publishing", (req, res) => {
+app.post("/api/post/publish", (req, res) => {
     const { postId, title, writer, days, contents } = req.body;
     var sql = "INSERT INTO post VALUES (?, ?, ?, ?, ?, ?)";
     connection.query(
@@ -104,10 +104,9 @@ app.post("/api/post/publishing", (req, res) => {
 });
 
 app.get("/api/post", (req, res) => {
-    var sql = "SELECT postId, title, writer, days FROM post";
+    var sql = "SELECT title, writer, days FROM post";
     connection.query(sql, (err, result) => {
         if (err) console.log(err);
-        // console.log(result);
         res.send(result);
     });
 });
@@ -119,8 +118,58 @@ app.post("/api/post/contents", (req, res) => {
     connection.query(sql, [apiKeyDays, apiKeyNickname], (err, result) => {
         if (err) console.log(err);
         console.log(result);
-        // res.send(result);
         res.send(result[0]);
+    });
+});
+
+app.post("/api/post/mypost", (req, res) => {
+    const { id } = req.body;
+    var sql = "SELECT title, writer, days FROM post WHERE postId = ?";
+    connection.query(sql, [id], (err, result) => {
+        if (err) console.log(err);
+        console.log(result);
+        res.send(result);
+    });
+});
+
+app.post("/api/post/myprofile-img", (req, res) => {
+    const { i, nickName } = req.body;
+    var sql = "UPDATE userList SET profileImg = ? WHERE nickName = ?";
+    connection.query(sql, [i, nickName], (err, result) => {
+        if (err) console.log(err);
+        console.log(result.info);
+        res.send("이미지가 변경되었습니다.");
+    });
+});
+
+app.post("/api/post/myprofile", (req, res) => {
+    const { id } = req.body;
+    var sql =
+        "SELECT id, email, profileImg, nickName FROM userList WHERE id = ?";
+    connection.query(sql, [id], (err, result) => {
+        if (err) console.log(err);
+        console.log(result);
+        res.send(result[0]);
+    });
+});
+
+app.post("/api/post/myprofile-nickname", (req, res) => {
+    const { id, nickName } = req.body;
+    var sql = "UPDATE userList SET nickName = ? WHERE id = ?";
+    connection.query(sql, [nickName, id], (err, result) => {
+        if (err) console.log(err);
+        console.log(result);
+        res.send("닉네임이 변경되었습니다.");
+    });
+});
+
+app.post("/api/post/delete", (req, res) => {
+    const { id, title } = req.body;
+    var sql = "DELETE FROM post WHERE title = ? and postId = ?";
+    connection.query(sql, [title, id], (err, result) => {
+        if (err) console.log(err);
+        console.log(result);
+        res.send("게시물이 삭제되었습니다.");
     });
 });
 

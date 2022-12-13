@@ -9,12 +9,32 @@ export interface Account {
     profileImg: number;
     post: null | number;
 }
+export type PostContentsType = {
+    title: string;
+    writer: string;
+    days: string;
+    contents: string;
+};
 
 export type OnChange = (
     e:
         | React.ChangeEvent<HTMLInputElement>
         | React.ChangeEvent<TextareaHTMLAttributes>,
     state: null | {},
+    setState: SetStateAction
+) => void;
+
+export type PsCheckOnChangeType = (
+    e:
+        | React.ChangeEvent<HTMLInputElement>
+        | React.ChangeEvent<TextareaHTMLAttributes>,
+    state: {
+        nickName: string;
+        email: string;
+        password: string;
+        passwordCheck: string;
+        tel: string;
+    },
     setState: SetStateAction
 ) => void;
 
@@ -50,8 +70,32 @@ export interface PostWriteProps {
 export type Today = () => string;
 
 export type PostType = {
-    postId: string;
     title: string;
     writer: string;
     days: string;
 }[];
+
+export interface MypostIprops {
+    post: PostType;
+}
+
+export interface ProfileImgListIprops {
+    nickName: string;
+    id: number;
+}
+
+export interface DeleteBoxIprops {
+    deleteSwitch: boolean;
+    setDeleteSwitch: SetStateAction;
+    id: number;
+    title: string;
+    history: History<unknown>;
+}
+
+export type UpdateProfileImgType = (
+    i: number,
+    id: number,
+    nickName: string
+) => void;
+
+export type UpdateNicknameType = (id: number, nickName: string) => void;

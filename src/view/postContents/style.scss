@@ -15,12 +15,27 @@
                 margin-bottom: 40px;
                 color: $main-gary;
             }
-            .post-conents-meta-info {
+            .post-contents-info-box {
+                position: relative;
                 width: 100%;
-                text-align: left;
-                margin-bottom: 10px;
-                span:nth-child(1) {
-                    margin-right: 10px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                .post-contents-meta-info {
+                    margin-bottom: 10px;
+                    span:nth-child(1) {
+                        margin-right: 10px;
+                    }
+                }
+                .fix-box {
+                    display: flex;
+                    flex-direction: row;
+                    span {
+                        cursor: pointer;
+                    }
+                    span:nth-child(1) {
+                        margin-right: 10px;
+                    }
                 }
             }
         }

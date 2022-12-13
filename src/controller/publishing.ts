@@ -7,7 +7,7 @@ const publishing: Publishing = function (title, contents, history) {
     const writer = JSON.parse(localStorage.user).nickName;
     let days = today();
     axios
-        .post("http://localhost:3010/api/post/publishing", {
+        .post("http://localhost:3010/api/post/publish", {
             postId,
             title,
             writer,

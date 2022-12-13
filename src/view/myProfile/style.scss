@@ -8,32 +8,47 @@
             height: 150px;
             border-bottom: 1px solid $main-gary;
             @include flexRow;
+            justify-content: space-between;
             margin-bottom: 60px;
-            .myprofile-image {
-                width: 100px;
-                height: 100px;
-                background: $main-gary;
-                margin-right: 20px;
-                border-radius: 50%;
-            }
             .myprofile-meta-info {
+                position: relative;
                 display: flex;
-                flex-direction: column;
+                flex-direction: row;
+                align-items: center;
+                .myprofile-image {
+                    width: 100px;
+                    height: 100px;
+                    // background: $main-gary;
+                    margin-right: 20px;
+                    border-radius: 50%;
+                    border: 1px solid $main-gary;
+                }
                 .nick-name {
                     font-size: 24px;
                     margin-bottom: 8px;
+                }
+                .fix-box {
+                    @include flexCol;
+                    align-items: flex-start;
+                    .nick-name-input {
+                        font-size: 24px;
+                        margin-bottom: 10px;
+                    }
                 }
                 .coment {
                     font-size: 16px;
                     color: $main-gary;
                 }
             }
+            .myprofile-fix-btn {
+                font-size: 14px;
+            }
         }
         .my-post-tag {
             width: 100%;
             @include flexRow;
             justify-content: space-between;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
     }
 }

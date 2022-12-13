@@ -16,6 +16,7 @@
             cursor: pointer;
         }
         .signup-form {
+            position: relative;
             @include flexCol;
             input {
                 width: 400px;
@@ -31,6 +32,17 @@
                 width: 400px;
                 height: 40px;
                 font-size: 18px;
+            }
+            .psCheck-no {
+                color: red;
+                position: absolute;
+                bottom: 110px;
+                right: 0;
+            }
+            .psCheck-ok {
+                position: absolute;
+                bottom: 110px;
+                right: 0;
             }
         }
     }

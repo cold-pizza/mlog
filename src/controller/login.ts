@@ -6,28 +6,32 @@ const login: Login = function (email, pw, history) {
     if (!pw) alert("비밀번호를 입력해주세요.");
     else {
         axios
-            .post("http://localhost:3010/api/user/login-form", {
+            .post("http://localhost:3010/api/user/login", {
                 email,
                 pw,
             })
             .then((res) => {
-                console.log(res);
-                const id = res.data.id;
-                const email = res.data.email;
-                const profileImg = res.data.profileImg;
-                const nickName = res.data.nickName;
-                const user = {
-                    id,
-                    email,
-                    profileImg,
-                    nickName,
-                };
-                localStorage.setItem("user", JSON.stringify(user));
-                window.location.reload();
+                console.log(res.data);
+                if (res.data === "비밀번호가 다릅니다.") {
+                    alert("비밀번호가 다릅니다.");
+                    return;
+                } else {
+                    const id = res.data.id;
+                    const email = res.data.email;
+                    const profileImg = res.data.profileImg;
+                    const nickName = res.data.nickName;
+                    const user = {
+                        id,
+                        email,
+                        profileImg,
+                        nickName,
+                    };
+                    localStorage.setItem("user", JSON.stringify(user));
+                    if (localStorage.user) history.push("/");
+                }
             })
 
             .catch((err) => console.log(err));
-        history.push("/");
     }
 };
 
