@@ -1,5 +1,5 @@
 import "./style.scss";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 // import { useHistory } from "react-router";
 import axios from "axios";
 import Nav from "../nav";
@@ -16,9 +16,12 @@ const MyProfile = function () {
     const id = JSON.parse(localStorage.user).id;
     const [fixSwitch, setFixSwitch] = useState(false);
     const [imgSwitch, setImgSwitch] = useState(false);
-    const [nickNameInput, setNickNameInput] = useState({ nickName: "" });
-    console.log(nickNameInput.nickName);
-    // console.log(imgSwitch);
+    const [nickNameInput, setNickNameInput] = useState("");
+
+    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setNickNameInput(e.target.value);
+    };
+
     const [post, setPost] = useState<PostType>([
         {
             title: "",
@@ -28,11 +31,15 @@ const MyProfile = function () {
     ]);
 
     useEffect(() => {
+        if (nickNameInput === "") {
+            setNickNameInput(nickName);
+        }
         axios
             .post("http://localhost:3010/api/post/mypost", { id })
             .then((res) => {
-                // console.log(res);
+                console.log(res.data[0]);
                 setPost(res.data);
+                // setNickNameInput(res.data[0].writer);
             })
             .catch((err) => console.log(err));
     }, []);
@@ -60,14 +67,9 @@ const MyProfile = function () {
                         {fixSwitch ? (
                             <div className="fix-box">
                                 <input
+                                    value={nickNameInput}
                                     className="nick-name-input"
-                                    onChange={(e) =>
-                                        onChange(
-                                            e,
-                                            nickNameInput,
-                                            setNickNameInput
-                                        )
-                                    }
+                                    onChange={onChange}
                                     type="text"
                                     placeholder={nickName}
                                     name="nickName"
@@ -89,15 +91,28 @@ const MyProfile = function () {
                         ) : null}
                     </div>
                     {fixSwitch ? (
-                        <button
-                            onClick={() => {
-                                setFixSwitch(!fixSwitch);
-                                updateNickname(id, nickNameInput.nickName);
-                            }}
-                            className="myprofile-fix-btn"
-                        >
-                            저장
-                        </button>
+                        <div>
+                            <button
+                                onClick={() => {
+                                    if (nickName === nickNameInput) {
+                                        setFixSwitch(!fixSwitch);
+                                    } else {
+                                        setFixSwitch(!fixSwitch);
+                                        updateNickname(
+                                            id,
+                                            nickNameInput,
+                                            nickName
+                                        );
+                                    }
+                                }}
+                                className="myprofile-fix-btn"
+                            >
+                                저장
+                            </button>
+                            <button onClick={() => setFixSwitch(!fixSwitch)}>
+                                취소
+                            </button>
+                        </div>
                     ) : (
                         <button
                             onClick={() => {

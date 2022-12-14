@@ -9,12 +9,17 @@ import publishing from "../../controller/publishing";
 const PostWrite = function () {
     const history = useHistory();
     const [post, setPost] = useState({ title: "", contents: "" });
+    let contentsLen = post.contents.length;
     return (
         <div className="post-write">
             <Nav />
             <button
                 onClick={() => {
-                    publishing(post.title, post.contents, history);
+                    if (post.title.length <= 0 || contentsLen <= 0) {
+                        alert("내용을 입력해주세요.");
+                    } else if (contentsLen >= 500) {
+                        alert("가용 텍스트를 초과했습니다.");
+                    } else publishing(post.title, post.contents, history);
                 }}
             >
                 발행
@@ -31,6 +36,7 @@ const PostWrite = function () {
                 {/* <button>이미지</button> */}
                 {/* 이미지 추가시 생성 */}
                 {/* <img src="#" alt="#" /> */}
+                <span className="text-length">{contentsLen}/500</span>
                 <textarea
                     onChange={(e) => {
                         onChange(e, post, setPost);

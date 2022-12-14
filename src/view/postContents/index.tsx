@@ -33,7 +33,7 @@ const PostContents = function () {
         const urlDays = window.location.pathname.split("/")[3];
         const apiKeyDays = urlDays.replace("%20", " ");
         axios
-            .post("http://localhost:3010/api/post/contents", {
+            .post("http://localhost:3010/api/post-contents/read", {
                 apiKeyNickname,
                 apiKeyDays,
             })
@@ -55,7 +55,15 @@ const PostContents = function () {
                         </div>
                         {usersName !== post.writer ? null : (
                             <div className="fix-box">
-                                <span>수정</span>
+                                <span
+                                    onClick={() => {
+                                        history.push(
+                                            `/update/post/${post.writer}/${post.days}`
+                                        );
+                                    }}
+                                >
+                                    수정
+                                </span>
                                 <span
                                     onClick={() =>
                                         setDeleteSwitch(!deleteSwitch)

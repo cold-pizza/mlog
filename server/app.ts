@@ -111,7 +111,7 @@ app.get("/api/post", (req, res) => {
     });
 });
 
-app.post("/api/post/contents", (req, res) => {
+app.post("/api/post-contents/read", (req, res) => {
     const { apiKeyNickname, apiKeyDays } = req.body;
     var sql =
         "SELECT title, writer, days, contents FROM post WHERE days = ? and writer = ?";
@@ -153,6 +153,16 @@ app.post("/api/post/myprofile", (req, res) => {
     });
 });
 
+app.post("/api/post/update/writer", (req, res) => {
+    const { beforeNickname, nickName } = req.body;
+    var sql = "UPDATE post SET writer = ? WHERE writer = ?";
+    connection.query(sql, [nickName, beforeNickname], (err, result) => {
+        if (err) console.log(err);
+        console.log(result);
+        res.send("포스트 작성자 수정 완료.");
+    });
+});
+
 app.post("/api/post/myprofile-nickname", (req, res) => {
     const { id, nickName } = req.body;
     var sql = "UPDATE userList SET nickName = ? WHERE id = ?";
@@ -165,11 +175,22 @@ app.post("/api/post/myprofile-nickname", (req, res) => {
 
 app.post("/api/post/delete", (req, res) => {
     const { id, title } = req.body;
-    var sql = "DELETE FROM post WHERE title = ? and postId = ?";
+    var sql = "DELETE FROM post WHERE title = ? AND postId = ?";
     connection.query(sql, [title, id], (err, result) => {
         if (err) console.log(err);
         console.log(result);
         res.send("게시물이 삭제되었습니다.");
+    });
+});
+
+app.post("/api/post/update", (req, res) => {
+    const { title, beforeTitle, contents, id } = req.body;
+    var sql =
+        "UPDATE post SET title = ?, contents = ? WHERE title = ? AND postId = ?";
+    connection.query(sql, [title, contents, beforeTitle, id], (err, result) => {
+        if (err) console.log(err);
+        console.log(result);
+        res.send("게시물이 수정되었습니다.");
     });
 });
 

@@ -98,4 +98,8 @@ export type UpdateProfileImgType = (
     nickName: string
 ) => void;
 
-export type UpdateNicknameType = (id: number, nickName: string) => void;
+export type UpdateNicknameType = (
+    id: number,
+    nickName: string,
+    beforeNickname: string
+) => void;

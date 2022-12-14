@@ -12,6 +12,7 @@ const Nav = function () {
         "/images/dragon-solid.svg",
         "/images/github.svg",
     ];
+
     const history = useHistory();
     const [profileSwitch, setProfileSwitch] = useState(false);
     const pathName = window.location.pathname;
@@ -33,7 +34,7 @@ const Nav = function () {
                 ) : (
                     <div
                         className="nav-writing"
-                        onClick={() => history.push("/postwrite")}
+                        onClick={() => history.push("/create-post")}
                     >
                         글 쓰기
                     </div>

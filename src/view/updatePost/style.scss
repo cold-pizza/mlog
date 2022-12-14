@@ -1,0 +1,30 @@
+@import "../../App.scss";
+
+.update-post {
+    display: flex;
+    flex-direction: column;
+    .update-post-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        input {
+            width: 1000px;
+            font-size: 50px;
+            outline: none;
+            border: none;
+            margin-bottom: 40px;
+        }
+        .update-post-btn {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 40px;
+        }
+        textarea {
+            font-size: 24px;
+            width: 1000px;
+            height: 1000px;
+            border: none;
+            resize: none;
+        }
+    }
+}
