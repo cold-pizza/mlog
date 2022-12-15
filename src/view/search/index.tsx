@@ -28,7 +28,6 @@ const Search = function () {
                     type="text"
                     placeholder="검색어를 입력하세요."
                 />
-                <button type="button">검색</button>
             </form>
             <section className="search-list">
                 {list

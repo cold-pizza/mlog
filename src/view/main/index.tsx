@@ -32,8 +32,9 @@ const Main = function () {
             <span>
                 {account
                     ? `반갑습니다. ${account.nickName} 님이 로그인 하셨습니다!`
-                    : "데이터가 없습니다. 로그인 또는 로컬스토리지를 확인해주세요."}
+                    : "데이터가 없습니다. 로그인을 해주세요."}
             </span>
+            {/* <p className="post-list-form">게시글</p> */}
             <Post />
         </div>
     );

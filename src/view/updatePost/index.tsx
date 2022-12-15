@@ -74,6 +74,7 @@ const UpdatePost = function () {
                     value={titleInput}
                     onChange={updateTitleOnChange}
                 />
+                <span>{contentsInput.length}/500</span>
                 <textarea
                     name="contents"
                     value={contentsInput}

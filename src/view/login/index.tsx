@@ -11,12 +11,8 @@ const Login = function () {
     return (
         <div className="login">
             <div className="login-box">
-                <header className="login-logo">Mlog</header>
-                <form
-                    // action="/api/login-form"
-                    className="login-form"
-                    method="POST"
-                >
+                <header className="login-logo">mlog</header>
+                <form className="login-form" method="POST">
                     <input
                         onChange={(e) => onChange(e, loginInput, setLoginInput)}
                         name="email"
@@ -30,6 +26,7 @@ const Login = function () {
                         placeholder="비밀번호"
                     />
                     <button
+                        className="login-btn"
                         onClick={() =>
                             login(
                                 loginInput.email,
@@ -54,9 +51,9 @@ const Login = function () {
                         회원가입
                     </span>
                     <div className="find-myAccount">
-                        <span className="find-id">계정 찾기</span>
+                        {/* <span className="find-id">계정 찾기</span>
                         <div className="bar"></div>
-                        <span className="find-pw">비밀번호 찾기</span>
+                        <span className="find-pw">비밀번호 찾기</span> */}
                     </div>
                 </section>
             </div>

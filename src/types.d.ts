@@ -49,12 +49,13 @@ export interface Signup {
         nickName: string,
         email: string,
         pw: string,
+        passwordCheck: string,
         tel: string,
         history: History<unknown>
     ): void;
 }
 
-export type Logout = () => void;
+export type Logout = (history: History<unknown>) => void;
 
 export type Publishing = (
     title: string,
@@ -90,6 +91,12 @@ export interface DeleteBoxIprops {
     id: number;
     title: string;
     history: History<unknown>;
+}
+
+export interface NavIprops {
+    contentsLen: number;
+    title: string;
+    contents: string;
 }
 
 export type UpdateProfileImgType = (

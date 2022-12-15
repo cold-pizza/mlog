@@ -109,7 +109,14 @@ const MyProfile = function () {
                             >
                                 저장
                             </button>
-                            <button onClick={() => setFixSwitch(!fixSwitch)}>
+                            <button
+                                onClick={() => {
+                                    if (imgSwitch) {
+                                        setImgSwitch(!imgSwitch);
+                                    }
+                                    setFixSwitch(!fixSwitch);
+                                }}
+                            >
                                 취소
                             </button>
                         </div>

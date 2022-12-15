@@ -14,6 +14,7 @@ const PostWrite = function () {
         <div className="post-write">
             <Nav />
             <button
+                className="create-btn"
                 onClick={() => {
                     if (post.title.length <= 0 || contentsLen <= 0) {
                         alert("내용을 입력해주세요.");

@@ -23,18 +23,24 @@ const Nav = function () {
                 <img src="/images/mlog-logo.png" alt="#" />
             </div>
             <section className="nav-item">
-                <div
-                    className="nav-search"
-                    onClick={() => history.push("/search")}
-                >
-                    검색
-                </div>
-                {pathName === "/postwrite" ? (
-                    <div>글 쓰는중</div>
+                {pathName === "/create-post" ? null : (
+                    <div
+                        className="nav-search"
+                        onClick={() => history.push("/search")}
+                    >
+                        검색
+                    </div>
+                )}
+                {pathName === "/create-post" ? (
+                    <div className="create-button">완료</div>
                 ) : (
                     <div
                         className="nav-writing"
-                        onClick={() => history.push("/create-post")}
+                        onClick={() => {
+                            if (!localStorage.user) {
+                                alert("로그인해 주세요.");
+                            } else history.push("/create-post");
+                        }}
                     >
                         글 쓰기
                     </div>
@@ -92,7 +98,10 @@ const Nav = function () {
                     ) : (
                         <li
                             onClick={() => {
-                                logout();
+                                if (profileSwitch) {
+                                    setProfileSwitch(!profileSwitch);
+                                }
+                                logout(history);
                             }}
                         >
                             로그아웃

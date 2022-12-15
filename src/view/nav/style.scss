@@ -25,6 +25,9 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+        .create-button {
+            font-weight: 700;
+        }
         div {
             cursor: pointer;
             user-select: none;
