@@ -32,7 +32,7 @@ const SignUp = function () {
     return (
         <div className="signup">
             <div className="signup-box">
-                <header onClick={() => history.replace("/")}>Mlog</header>
+                <header onClick={() => history.replace("/")}>mlog</header>
                 <form action="#" className="signup-form">
                     {inputList.map(({ name, type, placeHolder }) => {
                         return (

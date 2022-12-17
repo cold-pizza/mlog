@@ -1,16 +1,22 @@
 import "./style.scss";
 import React, { useState, useEffect } from "react";
-// import { useHistory } from "react-router";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Nav from "../nav";
 import Mypost from "../myPost";
 import { PostType } from "../../types";
-import onChange from "../../controller/onChange";
 
 import ProfileImgList from "./ProfileImgLIst";
 import updateNickname from "../../controller/updateNickname";
 
 const MyProfile = function () {
+    const history = useHistory();
+    useEffect(() => {
+        if (!localStorage.user) {
+            alert("로그인 해주세요.");
+            history.replace("/");
+        }
+    }, []);
     const profileImg = JSON.parse(localStorage.user).profileImg;
     const nickName = JSON.parse(localStorage.user).nickName;
     const id = JSON.parse(localStorage.user).id;

@@ -1,6 +1,14 @@
 @charset "UTF-8";
 
 $main-gary: #747474;
+$btn-hover-color: #808080;
+$input-color: #b0b0b0;
+$input-focus-color: #404040;
+$main-blue: #8aa6ff;
+
+@mixin box-shadow {
+    box-shadow: 0 3px 6px rgba(50, 50, 80, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
 @mixin flexCol {
     display: flex;

@@ -11,7 +11,12 @@ const Login = function () {
     return (
         <div className="login">
             <div className="login-box">
-                <header className="login-logo">mlog</header>
+                <header
+                    onClick={() => history.push("/")}
+                    className="login-logo"
+                >
+                    mlog
+                </header>
                 <form className="login-form" method="POST">
                     <input
                         onChange={(e) => onChange(e, loginInput, setLoginInput)}

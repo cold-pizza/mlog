@@ -1,10 +1,11 @@
+@import "../../App.scss";
 .login {
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #8aa6ff;
+    background: $main-blue;
     span {
         cursor: pointer;
     }
@@ -14,10 +15,10 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        box-shadow: 0 3px 6px rgba(50, 50, 80, 0.1),
-            0 2px 4px rgba(0, 0, 0, 0.1);
+        @include box-shadow;
         .login-logo {
             font-size: 30px;
+            cursor: pointer;
         }
         .login-form {
             display: flex;
@@ -30,11 +31,11 @@
                 font-size: 20px;
                 padding: 0 4px;
                 border: none;
-                border-bottom: 1px solid #b0b0b0;
+                border-bottom: 1px solid $input-color;
                 outline: none;
             }
             input:focus {
-                border-bottom: 1px solid #404040;
+                border-bottom: 1px solid $input-focus-color;
             }
             .login-btn {
                 width: 400px;
@@ -45,24 +46,24 @@
                 border: none;
             }
             .login-btn:hover {
-                background: #808080;
+                background: $btn-hover-color;
                 color: white;
                 margin-bottom: 20px;
                 transition: all 0.2s ease-in-out;
             }
         }
-        .or {
-        }
-        .login-google {
-        }
+        // .or {
+        // }
+        // .login-google {
+        // }
         .account-box {
             display: flex;
             flex-direction: row;
             width: 100%;
             justify-content: space-between;
             font-size: 12px;
-            .go-signup {
-            }
+            // .go-signup {
+            // }
             .find-myAccount {
                 display: flex;
                 flex-direction: row;

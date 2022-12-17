@@ -6,13 +6,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #8aa6ff;
+    background: $main-blue;
     .signup-box {
         padding: 20px;
         @include flexCol;
         background: white;
-        box-shadow: 0 3px 6px rgba(50, 50, 80, 0.1),
-            0 2px 4px rgba(0, 0, 0, 0.1);
+        @include box-shadow;
         header {
             font-size: 30px;
             user-select: none;
@@ -27,12 +26,12 @@
                 margin-bottom: 10px;
                 border: none;
                 outline: none;
-                border-bottom: 1px solid #b0b0b0;
+                border-bottom: 1px solid $input-color;
                 padding-left: 4px;
                 font-size: 18px;
             }
             input:focus {
-                border-bottom: 1px solid #404040;
+                border-bottom: 1px solid $input-focus-color;
             }
             .signup-btn {
                 width: 400px;
@@ -42,7 +41,7 @@
                 border-radius: 4px;
             }
             .signup-btn:hover {
-                background: #808080;
+                background: $btn-hover-color;
                 color: white;
                 transition: all 0.2s ease-in-out;
             }

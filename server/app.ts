@@ -45,9 +45,15 @@ app.post("/api/user/login", (req, res) => {
                 if (result.length) {
                     if (result[0].pw === pw) {
                         req.session.user = result[0];
-                        res.send(req.session.user);
+                        const user = result[0];
+                        res.send({
+                            email: user.email,
+                            id: user.id,
+                            nickName: user.nickName,
+                            profileImg: user.profileImg,
+                        });
                         // console.log(req.session);
-                        console.log("------ 로그인 성공 -------");
+                        console.log("로그인 성공");
                     } else {
                         console.log("비밀번호가 다릅니다.");
                         res.send("비밀번호가 다릅니다.");
