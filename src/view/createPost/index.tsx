@@ -6,7 +6,7 @@ import Nav from "../nav";
 import onChange from "../../controller/onChange";
 import publishing from "../../controller/publishing";
 
-const PostWrite = function () {
+const CreatePost = function () {
     const history = useHistory();
     const [post, setPost] = useState({ title: "", contents: "" });
     let contentsLen = post.contents.length;
@@ -50,4 +50,4 @@ const PostWrite = function () {
     );
 };
 
-export default PostWrite;
+export default CreatePost;

@@ -1,18 +1,18 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 import "./style.scss";
 import Nav from "../nav";
 import Post from "../post";
 
-import { Account } from "../../types";
 import axios from "axios";
 
-const Main = function () {
-    const [account, setAccount] = useState<Account>();
+// axios.defaults.withCredentials = true;
+axios.defaults.baseURL = `http://localhost:3010`;
 
+const Main = function () {
     useEffect(() => {
         axios
-            .get("http://localhost:3010/api/post")
+            .get("/api/post")
             .then((res) => {
                 localStorage.setItem(
                     "post",
@@ -20,20 +20,16 @@ const Main = function () {
                 );
             })
             .catch((err) => console.log(err));
-        const userStr = localStorage.getItem("user");
-        if (typeof userStr === "string") {
-            const user = JSON.parse(userStr);
-            setAccount(user);
-        }
     }, []);
+
     return (
         <div className="main">
             <Nav />
-            <span>
+            {/* <span>
                 {account
                     ? `${account.nickName} 님이 로그인 하셨습니다!`
                     : "로그인을 해주세요."}
-            </span>
+            </span> */}
             {/* <p className="post-list-form">게시글</p> */}
             <Post />
         </div>

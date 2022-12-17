@@ -59,9 +59,13 @@ const Nav = function () {
                 ) : (
                     <div
                         className="nav-profile"
-                        onClick={() => setProfileSwitch(!profileSwitch)}
+                        onClick={() => {
+                            if (localStorage.user)
+                                setProfileSwitch(!profileSwitch);
+                            else history.push("/login");
+                        }}
                     >
-                        프로필
+                        {localStorage.user ? "프로필" : "로그인"}
                     </div>
                 )}
             </section>

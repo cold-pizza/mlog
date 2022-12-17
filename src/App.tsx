@@ -13,23 +13,12 @@ import UpdatePost from "./view/updatePost";
 import isLogin from "./controller/isLogin";
 
 function App() {
-    const MyprofileRoute = () => {
-        return (
-            <Route
-                render={() => {
-                    return isLogin() ? <MyProfile /> : <Main />;
-                }}
-            />
-        );
-    };
-
     return (
         <div className="App">
             <Switch>
                 <Route path="/" exact render={() => <Main />} />
                 <Route path="/login" render={() => <Login />} />
                 <Route path="/signup" render={() => <SignUp />} />
-                <MyprofileRoute />
                 <Route path="/post/:id/:id" render={() => <PostContents />} />
                 <Route path="/search" render={() => <Search />} />
                 <Route path="/create-post" render={() => <CreatePost />} />
@@ -37,6 +26,13 @@ function App() {
                     path="/update/post/:id/:id"
                     render={() => <UpdatePost />}
                 />
+                <Route
+                    path="/myprofile"
+                    render={() => {
+                        return isLogin() ? <MyProfile /> : <Main />;
+                    }}
+                />
+                {/* <MyprofileRoute /> */}
             </Switch>
         </div>
     );
