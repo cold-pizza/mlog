@@ -1,14 +1,5 @@
 import React, { SetStateAction, TextareaHTMLAttributes } from "react";
 
-export interface Account {
-    id: string;
-    email: string;
-    nickName: string;
-    pw: string;
-    tel: string;
-    profileImg: number;
-    post: null | number;
-}
 export type PostContentsType = {
     title: string;
     writer: string;
@@ -109,4 +100,16 @@ export type UpdateNicknameType = (
     id: number,
     nickName: string,
     beforeNickname: string
+) => void;
+
+export type DeletePostType = (
+    id: number,
+    title: string,
+    history: History<unknown>
+) => void;
+
+export type ReadPostInfoType = (
+    nickName: string,
+    days: string,
+    setPost: SetStateAction
 ) => void;

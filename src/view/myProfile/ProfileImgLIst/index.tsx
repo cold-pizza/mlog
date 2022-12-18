@@ -10,7 +10,6 @@ const ProfileImgList: React.FC<ProfileImgListIprops> = function (props) {
         "/images/dragon-solid.svg",
         "/images/github.svg",
     ];
-    console.log(props.nickName);
     return (
         <div className="profile-img-list">
             <span>이미지를 선택해주세요.</span>
@@ -18,7 +17,6 @@ const ProfileImgList: React.FC<ProfileImgListIprops> = function (props) {
                 return (
                     <img
                         onClick={() => {
-                            console.log(i);
                             updateImg(i, props.id, props.nickName);
                         }}
                         key={list}

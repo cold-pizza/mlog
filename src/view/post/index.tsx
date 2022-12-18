@@ -35,7 +35,6 @@ const Post = function () {
                               >
                                   <div className="post-header">
                                       <span className="title">{title}</span>
-                                      {/* <span className="coment">세부내용..</span> */}
                                   </div>
                                   <div className="time-table">
                                       <span className="day">{days}</span>
@@ -43,11 +42,6 @@ const Post = function () {
                                       <span className="coment">{writer}</span>
                                   </div>
                               </div>
-                              {/* <img
-                                  className="post-info-image"
-                                  src="#"
-                                  alt="#"
-                              /> */}
                           </div>
                       );
                   })

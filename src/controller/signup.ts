@@ -22,7 +22,7 @@ const signup: Signup = function (nickName, email, pw, pwCheck, tel, history) {
         return false;
     } else {
         axios
-            .post("http://localhost:3010/api/user/signup", {
+            .post("/api/users/signup", {
                 id,
                 nickName,
                 email,

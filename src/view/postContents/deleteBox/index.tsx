@@ -1,6 +1,6 @@
 import "./style.scss";
-import axios from "axios";
 import { DeleteBoxIprops } from "../../../types";
+import deletePost from "../../../controller/deletePost";
 const DeleteBox: React.FC<DeleteBoxIprops> = function (props) {
     return (
         <section className="delete-box">
@@ -9,17 +9,7 @@ const DeleteBox: React.FC<DeleteBoxIprops> = function (props) {
                 <button
                     onClick={() => {
                         props.setDeleteSwitch(!props.deleteSwitch);
-                        axios
-                            .post("http://localhost:3010/api/post/delete", {
-                                id: props.id,
-                                title: props.title,
-                            })
-                            .then((res) => {
-                                // console.log(res);
-                                alert(res.data);
-                                props.history.push("/");
-                            })
-                            .catch((err) => console.log(err));
+                        deletePost(props.id, props.title, props.history);
                     }}
                 >
                     확인

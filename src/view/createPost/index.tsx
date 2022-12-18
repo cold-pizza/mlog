@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-
 import "./style.scss";
 import Nav from "../nav";
 
@@ -9,7 +8,6 @@ import publishing from "../../controller/publishing";
 
 const CreatePost = function () {
     const history = useHistory();
-
     const [post, setPost] = useState({ title: "", contents: "" });
     let contentsLen = post.contents.length;
     return (

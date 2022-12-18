@@ -1,18 +1,15 @@
 import { useEffect } from "react";
-
 import "./style.scss";
 import Nav from "../nav";
 import Post from "../post";
-
 import axios from "axios";
 
-// axios.defaults.withCredentials = true;
 axios.defaults.baseURL = `http://localhost:3010`;
 
 const Main = function () {
     useEffect(() => {
         axios
-            .get("/api/post")
+            .get("/api/posts/read")
             .then((res) => {
                 localStorage.setItem(
                     "post",

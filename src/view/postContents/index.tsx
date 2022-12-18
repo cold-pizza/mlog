@@ -2,9 +2,9 @@ import "./style.scss";
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router";
 import Nav from "../nav";
-import axios from "axios";
 import { PostContentsType } from "../../types";
 import DeleteBox from "./deleteBox";
+import readPostInfo from "../../controller/readPostInfo";
 
 const PostContents = function () {
     const history = useHistory();
@@ -12,7 +12,7 @@ const PostContents = function () {
     const usersName = localStorage.user
         ? JSON.parse(localStorage.user).nickName
         : null;
-    // console.log(usersName);
+
     const [deleteSwitch, setDeleteSwitch] = useState(false);
     const [post, setPost] = useState<PostContentsType>({
         title: "",
@@ -20,7 +20,7 @@ const PostContents = function () {
         days: "",
         contents: "",
     });
-    // console.log(post.writer);
+
     useEffect(() => {
         const localPost = localStorage.getItem("post");
         if (typeof localPost === "string") {
@@ -32,13 +32,7 @@ const PostContents = function () {
         );
         const urlDays = window.location.pathname.split("/")[3];
         const apiKeyDays = urlDays.replace("%20", " ");
-        axios
-            .post("http://localhost:3010/api/post-contents/read", {
-                apiKeyNickname,
-                apiKeyDays,
-            })
-            .then((res) => setPost(res.data))
-            .catch((err) => console.log(err));
+        readPostInfo(apiKeyNickname, apiKeyDays, setPost);
     }, []);
     return (
         <div className="post-contents">
@@ -84,7 +78,6 @@ const PostContents = function () {
                         ) : null}
                     </div>
                 </div>
-                {/* <img className="post-contents-image" src="#" alt="#" /> */}
                 <section className="post-contents-writing">
                     <span className="writing">{post.contents}</span>
                 </section>

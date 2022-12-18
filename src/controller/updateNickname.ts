@@ -6,7 +6,7 @@ const updateNickname: UpdateNicknameType = function (
     beforeNickname
 ) {
     axios
-        .post("http://localhost:3010/api/post/myprofile-nickname", {
+        .post("/api/myprofile-nickname/update", {
             id,
             nickName,
         })
@@ -14,14 +14,14 @@ const updateNickname: UpdateNicknameType = function (
             console.log(res);
             if (res.data === "닉네임이 변경되었습니다.") {
                 axios
-                    .post("http://localhost:3010/api/post/update/writer", {
+                    .post("/api/posts-writer/update", {
                         beforeNickname,
                         nickName,
                     })
                     .then((res) => console.log(res.data))
                     .catch((err) => console.log(err));
                 axios
-                    .post("http://localhost:3010/api/post/myprofile", {
+                    .post("/api/myprofile/read", {
                         id: id,
                     })
                     .then((res) => {

@@ -11,7 +11,7 @@ const login: Login = function (email, pw, history) {
         return false;
     } else {
         axios
-            .post("http://localhost:3010/api/user/login", {
+            .post("/api/users/login", {
                 email,
                 pw,
             })

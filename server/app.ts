@@ -37,7 +37,7 @@ app.use(
     })
 );
 
-app.post("/api/user/login", (req, res) => {
+app.post("/api/users/login", (req, res) => {
     const { email, pw } = req.body;
     if (req.session.user?.email === email) {
         res.send("이미 로그인되어있습니다.");
@@ -57,7 +57,6 @@ app.post("/api/user/login", (req, res) => {
                             nickName: user.nickName,
                             profileImg: user.profileImg,
                         });
-                        // console.log(req.session);
                         console.log("로그인 성공");
                     } else {
                         console.log("비밀번호가 다릅니다.");
@@ -69,7 +68,7 @@ app.post("/api/user/login", (req, res) => {
     }
 });
 
-app.post("/api/user/logout", (req, res) => {
+app.post("/api/users/logout", (req, res) => {
     console.log(req.session);
     console.log("로그아웃 중입니다.");
     req.session.destroy((err) => {
@@ -79,7 +78,7 @@ app.post("/api/user/logout", (req, res) => {
     });
 });
 
-app.post("/api/user/signup", (req, res) => {
+app.post("/api/users/signup", (req, res) => {
     const { nickName, email, pw, tel, profileNum } = req.body;
     const idFront = email.split("@")[0];
     let idList = "";
@@ -99,7 +98,7 @@ app.post("/api/user/signup", (req, res) => {
     );
 });
 
-app.post("/api/post/publish", (req, res) => {
+app.post("/api/posts/create", (req, res) => {
     const { postId, title, writer, days, contents } = req.body;
     var sql = "INSERT INTO post VALUES (?, ?, ?, ?, ?, ?)";
     connection.query(
@@ -114,7 +113,7 @@ app.post("/api/post/publish", (req, res) => {
     );
 });
 
-app.get("/api/post", (req, res) => {
+app.get("/api/posts/read", (req, res) => {
     var sql = "SELECT title, writer, days FROM post";
     connection.query(sql, (err, result) => {
         if (err) console.log(err);
@@ -122,7 +121,7 @@ app.get("/api/post", (req, res) => {
     });
 });
 
-app.post("/api/post-contents/read", (req, res) => {
+app.post("/api/posts-info/read", (req, res) => {
     const { apiKeyNickname, apiKeyDays } = req.body;
     var sql =
         "SELECT title, writer, days, contents FROM post WHERE days = ? and writer = ?";
@@ -133,7 +132,7 @@ app.post("/api/post-contents/read", (req, res) => {
     });
 });
 
-app.post("/api/post/mypost", (req, res) => {
+app.post("/api/mypost/read", (req, res) => {
     const { id } = req.body;
     var sql = "SELECT title, writer, days FROM post WHERE postId = ?";
     connection.query(sql, [id], (err, result) => {
@@ -143,7 +142,7 @@ app.post("/api/post/mypost", (req, res) => {
     });
 });
 
-app.post("/api/post/myprofile-img", (req, res) => {
+app.post("/api/myprofile-image/update", (req, res) => {
     const { i, nickName } = req.body;
     var sql = "UPDATE userList SET profileImg = ? WHERE nickName = ?";
     connection.query(sql, [i, nickName], (err, result) => {
@@ -153,7 +152,7 @@ app.post("/api/post/myprofile-img", (req, res) => {
     });
 });
 
-app.post("/api/post/myprofile", (req, res) => {
+app.post("/api/myprofile/read", (req, res) => {
     const { id } = req.body;
     var sql =
         "SELECT id, email, profileImg, nickName FROM userList WHERE id = ?";
@@ -164,7 +163,7 @@ app.post("/api/post/myprofile", (req, res) => {
     });
 });
 
-app.post("/api/post/update/writer", (req, res) => {
+app.post("/api/posts-writer/update", (req, res) => {
     const { beforeNickname, nickName } = req.body;
     var sql = "UPDATE post SET writer = ? WHERE writer = ?";
     connection.query(sql, [nickName, beforeNickname], (err, result) => {
@@ -174,7 +173,7 @@ app.post("/api/post/update/writer", (req, res) => {
     });
 });
 
-app.post("/api/post/myprofile-nickname", (req, res) => {
+app.post("/api/myprofile-nickname/update", (req, res) => {
     const { id, nickName } = req.body;
     var sql = "UPDATE userList SET nickName = ? WHERE id = ?";
     connection.query(sql, [nickName, id], (err, result) => {
@@ -184,7 +183,7 @@ app.post("/api/post/myprofile-nickname", (req, res) => {
     });
 });
 
-app.post("/api/post/delete", (req, res) => {
+app.post("/api/posts/delete", (req, res) => {
     const { id, title } = req.body;
     var sql = "DELETE FROM post WHERE title = ? AND postId = ?";
     connection.query(sql, [title, id], (err, result) => {
@@ -194,7 +193,7 @@ app.post("/api/post/delete", (req, res) => {
     });
 });
 
-app.post("/api/post/update", (req, res) => {
+app.post("/api/posts/update", (req, res) => {
     const { title, beforeTitle, contents, id } = req.body;
     var sql =
         "UPDATE post SET title = ?, contents = ? WHERE title = ? AND postId = ?";

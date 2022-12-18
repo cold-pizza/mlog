@@ -41,11 +41,9 @@ const MyProfile = function () {
             setNickNameInput(nickName);
         }
         axios
-            .post("http://localhost:3010/api/post/mypost", { id })
+            .post("/api/mypost/read", { id })
             .then((res) => {
-                console.log(res.data[0]);
                 setPost(res.data);
-                // setNickNameInput(res.data[0].writer);
             })
             .catch((err) => console.log(err));
     }, []);

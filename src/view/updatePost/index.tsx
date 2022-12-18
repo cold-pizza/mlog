@@ -30,7 +30,7 @@ const UpdatePost = function () {
         const urlDays = window.location.pathname.split("/")[4];
         const apiKeyDays = urlDays.replace("%20", " ");
         axios
-            .post("http://localhost:3010/api/post-contents/read", {
+            .post("/api/posts-info/read", {
                 apiKeyNickname,
                 apiKeyDays,
             })
@@ -51,7 +51,7 @@ const UpdatePost = function () {
             <button
                 onClick={() => {
                     axios
-                        .post("http://localhost:3010/api/post/update", {
+                        .post("/api/post/update", {
                             title: titleInput,
                             beforeTitle: post.title,
                             contents: contentsInput,

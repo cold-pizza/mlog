@@ -13,10 +13,6 @@ const Search = function () {
         setSearch(e.target.value);
     };
 
-    function isDefined<T>(argument: T | undefined | null): argument is T {
-        return argument !== undefined && argument !== null;
-    }
-
     return (
         <div className="search">
             <Nav />
