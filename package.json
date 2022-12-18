@@ -36,7 +36,7 @@
         "test": "react-scripts test",
         "eject": "react-scripts eject"
     },
-    "homepage": "https://cold-pizza.github.io/mlog",
+    "homepage": "https://cold-pizza.github.io/mlog/",
     "eslintConfig": {
         "extends": [
             "react-app",
