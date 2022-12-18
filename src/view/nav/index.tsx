@@ -32,7 +32,7 @@ const Nav = function () {
                     </div>
                 )}
                 {pathName === "/create-post" ? (
-                    <div className="create-button">완료</div>
+                    <div className="create-button"></div>
                 ) : (
                     <div
                         className="nav-writing"

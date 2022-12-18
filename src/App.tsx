@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.scss";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useHistory } from "react-router-dom";
 
 import Main from "./view/main/index";
 import Login from "./view/login";
@@ -13,6 +13,7 @@ import UpdatePost from "./view/updatePost";
 import isLogin from "./controller/isLogin";
 
 function App() {
+    const history = useHistory();
     return (
         <div className="App">
             <Switch>
@@ -21,10 +22,15 @@ function App() {
                 <Route path="/signup" render={() => <SignUp />} />
                 <Route path="/post/:id/:id" render={() => <PostContents />} />
                 <Route path="/search" render={() => <Search />} />
-                <Route path="/create-post" render={() => <CreatePost />} />
                 <Route
                     path="/update/post/:id/:id"
                     render={() => <UpdatePost />}
+                />
+                <Route
+                    path="/create-post"
+                    render={() => {
+                        return isLogin() ? <CreatePost /> : <Main />;
+                    }}
                 />
                 <Route
                     path="/myprofile"

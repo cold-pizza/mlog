@@ -12,6 +12,7 @@ const Post = function () {
             days: "",
         },
     ]);
+
     useEffect(() => {
         const localPost = localStorage.getItem("post");
         if (typeof localPost === "string") {
