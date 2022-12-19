@@ -79,16 +79,16 @@ app.post("/api/users/logout", (req, res) => {
 });
 
 app.post("/api/users/signup", (req, res) => {
-    const { nickName, email, pw, tel, profileNum } = req.body;
+    const { nickName, email, pw, tel, mbti, profileNum } = req.body;
     const idFront = email.split("@")[0];
     let idList = "";
     for (let i = 0; i < idFront.length; i++) {
         idList = idList + `${idFront.charCodeAt(i) * 78}`;
     }
-    var sql = "INSERT INTO userList VALUES (?, ?, ?, ?, ?, ?)";
+    var sql = "INSERT INTO userList VALUES (?, ?, ?, ?, ?, ?, ?)";
     connection.query(
         sql,
-        [idList, email, nickName, pw, tel, profileNum],
+        [idList, email, nickName, pw, tel, profileNum, mbti],
         (err, result) => {
             if (err) console.log(err);
             console.log(result);

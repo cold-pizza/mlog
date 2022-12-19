@@ -7,7 +7,9 @@ const readPostInfo: ReadPostInfoType = function (nickName, days, setPost) {
             apiKeyNickname: nickName,
             apiKeyDays: days,
         })
-        .then((res) => setPost(res.data))
+        .then((res) => {
+            setPost(res.data);
+        })
         .catch((err) => console.log(err));
 };
 

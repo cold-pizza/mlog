@@ -1,6 +1,15 @@
 import axios from "axios";
 import { Signup } from "../types";
-const signup: Signup = function (nickName, email, pw, pwCheck, tel, history) {
+import filterMbti from "./filterMbti";
+const signup: Signup = function (
+    nickName,
+    email,
+    pw,
+    pwCheck,
+    tel,
+    mbti,
+    history
+) {
     const profileNum = Math.floor(Math.random() * 5);
     const id = email + nickName;
     const spe = pw.search(/[!@#$%^&*]/gi);
@@ -20,6 +29,14 @@ const signup: Signup = function (nickName, email, pw, pwCheck, tel, history) {
     if (pw !== pwCheck) {
         alert("비밀번호가 다릅니다.");
         return false;
+    }
+    if (mbti.length < 4) {
+        alert("mbti를 모두입력해주세요.");
+        return false;
+    }
+    if (!filterMbti(mbti)) {
+        alert("mbti가 잘못 입력되었습니다.");
+        return false;
     } else {
         axios
             .post("/api/users/signup", {
@@ -28,11 +45,11 @@ const signup: Signup = function (nickName, email, pw, pwCheck, tel, history) {
                 email,
                 pw,
                 tel,
+                mbti,
                 profileNum,
             })
             .then((res) => {
                 console.log(res.data);
-                // console.log(JSON.parse(res.config.data)); <-- 회원정보
                 alert("회원가입이 완료되었습니다.");
                 history.push("/");
             })

@@ -22,15 +22,10 @@ const PostContents = function () {
     });
 
     useEffect(() => {
-        const localPost = localStorage.getItem("post");
-        if (typeof localPost === "string") {
-            const post = JSON.parse(localPost);
-            setPost(post);
-        }
         const apiKeyNickname = decodeURI(
-            window.location.pathname.split("/")[2]
+            window.location.pathname.split("/")[3]
         );
-        const urlDays = window.location.pathname.split("/")[3];
+        const urlDays = window.location.pathname.split("/")[4];
         const apiKeyDays = urlDays.replace("%20", " ");
         readPostInfo(apiKeyNickname, apiKeyDays, setPost);
     }, []);

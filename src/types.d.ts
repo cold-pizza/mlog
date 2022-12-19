@@ -42,6 +42,7 @@ export interface Signup {
         pw: string,
         passwordCheck: string,
         tel: string,
+        mbti: string,
         history: History<unknown>
     ): void;
 }

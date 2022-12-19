@@ -7,26 +7,33 @@ import signup from "../../controller/signup";
 
 const SignUp = function () {
     const history = useHistory();
-
     const [signupInput, setSignupInput] = useState({
         nickName: "",
         email: "",
         password: "",
         passwordCheck: "",
         tel: "",
+        mbti: "",
     });
-    const { nickName, email, password, passwordCheck, tel } = signupInput;
+    const { nickName, email, password, passwordCheck, tel, mbti } = signupInput;
 
     const inputList = [
-        { name: "nickName", type: "text", placeHolder: "닉네임" },
-        { name: "email", type: "email", placeHolder: "이메일" },
-        { name: "password", type: "password", placeHolder: "비밀번호" },
+        { name: "nickName", type: "text", placeHolder: "닉네임", maxLength: 8 },
+        { name: "email", type: "email", placeHolder: "이메일", maxLength: 22 },
+        {
+            name: "password",
+            type: "password",
+            placeHolder: "비밀번호",
+            maxLength: 16,
+        },
         {
             name: "passwordCheck",
             type: "password",
             placeHolder: "비밀번호 확인",
+            maxLength: 16,
         },
-        { name: "tel", type: "text", placeHolder: "전화번호" },
+        { name: "tel", type: "text", placeHolder: "전화번호", maxLength: 8 },
+        { name: "mbti", type: "text", placeHolder: "mbti", maxLength: 4 },
     ];
 
     return (
@@ -34,7 +41,7 @@ const SignUp = function () {
             <div className="signup-box">
                 <header onClick={() => history.replace("/")}>mlog</header>
                 <form action="#" className="signup-form">
-                    {inputList.map(({ name, type, placeHolder }) => {
+                    {inputList.map(({ name, type, placeHolder, maxLength }) => {
                         return (
                             <input
                                 key={placeHolder}
@@ -45,6 +52,7 @@ const SignUp = function () {
                                 }
                                 type={type}
                                 placeholder={placeHolder}
+                                maxLength={maxLength}
                             />
                         );
                     })}
@@ -56,6 +64,7 @@ const SignUp = function () {
                                 password,
                                 passwordCheck,
                                 tel,
+                                mbti.toUpperCase(),
                                 history
                             );
                         }}
