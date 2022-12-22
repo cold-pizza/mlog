@@ -56,6 +56,7 @@ app.post("/api/users/login", (req, res) => {
                             id: user.id,
                             nickName: user.nickName,
                             profileImg: user.profileImg,
+                            mbti: user.mbti,
                         });
                         console.log("로그인 성공");
                     } else {
@@ -99,11 +100,11 @@ app.post("/api/users/signup", (req, res) => {
 });
 
 app.post("/api/posts/create", (req, res) => {
-    const { postId, title, writer, days, contents } = req.body;
-    var sql = "INSERT INTO post VALUES (?, ?, ?, ?, ?, ?)";
+    const { postId, title, writer, days, contents, mbti } = req.body;
+    var sql = "INSERT INTO post VALUES (?, ?, ?, ?, ?, ?, ?)";
     connection.query(
         sql,
-        [postId, title, writer, days, contents, 0],
+        [postId, title, writer, days, contents, 0, mbti],
         (err, result) => {
             if (err) console.log(err);
             console.log(result);
@@ -114,7 +115,7 @@ app.post("/api/posts/create", (req, res) => {
 });
 
 app.get("/api/posts/read", (req, res) => {
-    var sql = "SELECT title, writer, days FROM post";
+    var sql = "SELECT title, writer, days, mbti FROM post";
     connection.query(sql, (err, result) => {
         if (err) console.log(err);
         res.send(result);

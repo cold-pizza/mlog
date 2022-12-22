@@ -16,7 +16,6 @@ const login: Login = function (email, pw, history) {
                 pw,
             })
             .then((res) => {
-                // console.log(res.data);
                 if (res.data === "비밀번호가 다릅니다.") {
                     alert("비밀번호가 다릅니다.");
                     return false;

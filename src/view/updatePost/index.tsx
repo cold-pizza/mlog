@@ -25,10 +25,11 @@ const UpdatePost = function () {
 
     useEffect(() => {
         const apiKeyNickname = decodeURI(
-            window.location.pathname.split("/")[3]
+            window.location.pathname.split("/")[4]
         );
-        const urlDays = window.location.pathname.split("/")[4];
+        const urlDays = window.location.pathname.split("/")[5];
         const apiKeyDays = urlDays.replace("%20", " ");
+        console.log(apiKeyNickname, apiKeyDays);
         axios
             .post("/api/posts-info/read", {
                 apiKeyNickname,
@@ -36,6 +37,7 @@ const UpdatePost = function () {
             })
             .then((res) => {
                 setPost(res.data);
+                console.log(post);
                 if (titleInput === "") {
                     setTitleInput(res.data.title);
                 }
@@ -51,7 +53,7 @@ const UpdatePost = function () {
             <button
                 onClick={() => {
                     axios
-                        .post("/api/post/update", {
+                        .post("/api/posts/update", {
                             title: titleInput,
                             beforeTitle: post.title,
                             contents: contentsInput,
@@ -59,7 +61,7 @@ const UpdatePost = function () {
                         })
                         .then((res) => {
                             alert(res.data);
-                            history.push("/myprofile");
+                            history.push("/");
                         })
                         .catch((err) => console.log(err));
                 }}
@@ -74,7 +76,7 @@ const UpdatePost = function () {
                     value={titleInput}
                     onChange={updateTitleOnChange}
                 />
-                <span>{contentsInput.length}/500</span>
+                <span>{contentsInput ? contentsInput.length : null}/500</span>
                 <textarea
                     name="contents"
                     value={contentsInput}

@@ -6,6 +6,7 @@ const logout: Logout = function (history) {
         .then((res) => {
             alert(res.data);
             localStorage.removeItem("user");
+            localStorage.removeItem("mbtiPost");
             console.log(res.data);
             // window.location.reload();
             history.push("/");

@@ -2,7 +2,8 @@ import "./style.scss";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { PostType } from "../../types";
-
+import getTimeForToday from "../../controller/getTimeForToday";
+import getToday from "../../controller/getToday";
 const Post = function () {
     const history = useHistory();
     const [post, setPost] = useState<PostType>([
@@ -14,11 +15,8 @@ const Post = function () {
     ]);
 
     useEffect(() => {
-        const localPost = localStorage.getItem("post");
-        if (typeof localPost === "string") {
-            const post = JSON.parse(localPost);
-            setPost(post);
-        }
+        const post = JSON.parse(localStorage.post);
+        setPost(post);
     }, []);
 
     return (
@@ -37,9 +35,11 @@ const Post = function () {
                                       <span className="title">{title}</span>
                                   </div>
                                   <div className="time-table">
-                                      <span className="day">{days}</span>
+                                      <span className="day">
+                                          {getTimeForToday(getToday(days))}
+                                      </span>
                                       <div className="text-line"></div>
-                                      <span className="coment">{writer}</span>
+                                      <span className="writer">{writer}</span>
                                   </div>
                               </div>
                           </div>

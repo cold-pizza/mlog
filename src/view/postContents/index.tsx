@@ -74,7 +74,12 @@ const PostContents = function () {
                     </div>
                 </div>
                 <section className="post-contents-writing">
-                    <span className="writing">{post.contents}</span>
+                    <span
+                        style={{ whiteSpace: "pre-wrap" }}
+                        className="writing"
+                    >
+                        {post.contents}
+                    </span>
                 </section>
             </section>
         </div>

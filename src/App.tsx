@@ -11,6 +11,7 @@ import Search from "./view/search";
 import CreatePost from "./view/createPost";
 import UpdatePost from "./view/updatePost";
 import isLogin from "./controller/isLogin";
+import MbtiPost from "./view/mbtiPost";
 
 function App() {
     const history = useHistory();
@@ -22,6 +23,7 @@ function App() {
                 <Route path="/signup" render={() => <SignUp />} />
                 <Route path="/post/:id/:id" render={() => <PostContents />} />
                 <Route path="/search" render={() => <Search />} />
+                <Route path="/mbti/:id" render={() => <MbtiPost />} />
                 <Route
                     path="/update/post/:id/:id"
                     render={() => <UpdatePost />}

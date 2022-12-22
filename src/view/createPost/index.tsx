@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import "./style.scss";
 import Nav from "../nav";
@@ -23,6 +23,7 @@ const CreatePost = function () {
                         } else if (contentsLen >= 500) {
                             alert("가용 텍스트를 초과했습니다.");
                         } else publishing(post.title, post.contents, history);
+                        console.log(post.contents);
                     }}
                 >
                     발행
