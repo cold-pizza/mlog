@@ -1,4 +1,4 @@
-type GetTimeForTodayType = (value: number[]) => string;
+import { GetTimeForTodayType } from "../types";
 const getTimeForToday: GetTimeForTodayType = function (value) {
     const today = new Date();
     const timeValue = new Date(

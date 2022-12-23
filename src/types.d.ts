@@ -1,5 +1,19 @@
 import React, { SetStateAction, TextareaHTMLAttributes } from "react";
 
+export interface Users {
+    LoginType: (email: string, pw: string, history: History<unknown>) => void;
+    SignupType: (
+        nickName: string,
+        email: string,
+        pw: string,
+        passwordCheck: string,
+        tel: string,
+        mbti: string,
+        history: History<unknown>
+    ) => void;
+    LogoutType: (history: History<unknown>) => void;
+}
+
 export type PostContentsType = {
     title: string;
     writer: string;
@@ -28,26 +42,6 @@ export type PsCheckOnChangeType = (
     },
     setState: SetStateAction
 ) => void;
-
-export type Login = (
-    email: string,
-    pw: string,
-    history: History<unknown>
-) => void;
-
-export interface Signup {
-    (
-        nickName: string,
-        email: string,
-        pw: string,
-        passwordCheck: string,
-        tel: string,
-        mbti: string,
-        history: History<unknown>
-    ): void;
-}
-
-export type Logout = (history: History<unknown>) => void;
 
 export type Publishing = (
     title: string,
@@ -114,3 +108,6 @@ export type ReadPostInfoType = (
     days: string,
     setPost: SetStateAction
 ) => void;
+
+export type GetTimeForTodayType = (value: number[]) => string;
+export type GetTodayType = (days: string) => number[];

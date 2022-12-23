@@ -93,7 +93,7 @@ app.post("/api/users/signup", (req, res) => {
         (err, result) => {
             if (err) console.log(err);
             console.log(result);
-            console.log("⭐️⭐️⭐️⭐️⭐️ 회원가입 성공 ⭐️⭐️⭐️⭐️⭐️⭐️");
+            console.log("회원가입 성공");
             res.send("회원가입이 완료되었습니다.");
         }
     );

@@ -10,3 +10,4 @@ const getPost = () => {
 };
 
 export default getPost;
+// export main.tsx

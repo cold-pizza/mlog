@@ -1,6 +1,5 @@
 type FilterMbtiType = (mbti: string) => boolean;
 
-// export signup.ts;
 const filterMbti: FilterMbtiType = function (mbti) {
     const mbtiList = "IENSTFJP";
     for (let i = 0; i < 4; i++) {
@@ -15,3 +14,4 @@ const filterMbti: FilterMbtiType = function (mbti) {
     return true;
 };
 export default filterMbti;
+// export signup.ts;

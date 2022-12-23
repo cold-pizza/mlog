@@ -1,4 +1,4 @@
-type GetTodayType = (days: string) => number[];
+import { GetTodayType } from "../types";
 const getToday: GetTodayType = function (days) {
     let timeArr = [];
     const time = days.split(" ");

@@ -1,6 +1,6 @@
 import axios from "axios";
-import { Logout } from "../types";
-const logout: Logout = function (history) {
+import { Users } from "../types";
+const logout: Users["LogoutType"] = function (history) {
     axios
         .post("/api/users/logout")
         .then((res) => {
@@ -8,7 +8,6 @@ const logout: Logout = function (history) {
             localStorage.removeItem("user");
             localStorage.removeItem("mbtiPost");
             console.log(res.data);
-            // window.location.reload();
             history.push("/");
         })
         .catch((err) => console.log(err));

@@ -1,7 +1,7 @@
 import axios from "axios";
-import { Login } from "../types";
+import { Users } from "../types";
 
-const login: Login = function (email, pw, history) {
+const login: Users["LoginType"] = function (email, pw, history) {
     if (!email) {
         alert("이메일을 입력해주세요.");
         return false;

@@ -9,7 +9,6 @@ const today: Today = function () {
         hours = "0" + hours;
     }
     const clock = hours + ":" + today.getMinutes();
-    // console.log(`today is ${year}-${month}-${day}`);
     return `${year}-${month}-${day} ${clock}`;
 };
 export default today;

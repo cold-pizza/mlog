@@ -25,7 +25,6 @@ const updateNickname: UpdateNicknameType = function (
                         id: id,
                     })
                     .then((res) => {
-                        console.log(res.data);
                         localStorage.user = JSON.stringify(res.data);
                         console.log("유저 정보 불러오기 성공");
                     })
