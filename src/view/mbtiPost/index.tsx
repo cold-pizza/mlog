@@ -8,7 +8,7 @@ import getToday from "../../controller/getToday";
 import getTimeForToday from "../../controller/getTimeForToday";
 
 import "./style.scss";
-const MbtiPost = function () {
+const MbtiPost = () => {
     const history = useHistory();
     const [post, setPost] = useState<PostType>([
         {

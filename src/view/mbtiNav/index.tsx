@@ -12,6 +12,7 @@ const MbtiNav = function () {
         ["T", "F"],
         ["P", "J"],
     ];
+    const pathname = window.location.pathname.split("/")[3];
     useEffect(() => {
         const mbti = window.location.pathname.split("/")[3];
         setMbti(mbti);
@@ -45,7 +46,9 @@ const MbtiNav = function () {
                     );
                 })}
             </section>
-            <span className="mbti-post">{mbti} 게시글</span>
+            <span className="mbti-post">
+                {pathname === undefined ? "통합" : mbti} 게시글
+            </span>
         </div>
     );
 };
