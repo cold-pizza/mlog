@@ -22,9 +22,10 @@
 
 # 주요 기능
 
--   로그인, 로그아웃, 회원가입
--   게시글 생성, 수정, 삭제
--   mbti 카테고리 별 게시글 초기화
+-   로그인, 로그아웃, 회원가입.
+-   게시글 생성, 수정, 삭제.
+-   mbti 카테고리 별 게시글 초기화.
+-   자신의 mbti 카테고리에만 글을 작성할 수 있습니다.
 
 # 프로젝트 구조
 
@@ -43,12 +44,6 @@
     -   server
         -   app.ts
 
-# 프로젝트 후기
-
--   <code>redux toolkit</code>사용 경험으로 상태관리의 편리성을 이해
--   <code>MySQL</code> 사용 경험으로 데이터베이스와 서버 소통을 이해
--   백엔드 구축 경험으로 <code>REST API</code>의 필요성을 이해
-
 # 로그인 화면
 
 ![](public/images/screen1225.gif)
@@ -60,3 +55,9 @@
 # 게시글 화면
 
 ![](public/images/screen1225-2.gif)
+
+# 프로젝트 후기
+
+-   <code>redux toolkit</code>사용 경험으로 상태관리의 편리성을 이해
+-   <code>MySQL</code> 사용 경험으로 데이터베이스와 서버 소통을 이해
+-   백엔드와, DB 구축 경험으로 <code>REST API</code>의 필요성을 이해
