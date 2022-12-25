@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import postSlice from "./slices/postSlice";
+import imageSlice from "./slices/imageSlice";
 
 const store = configureStore({
     reducer: {
-        createPost: postSlice.reducer,
+        imageSlice: imageSlice.reducer,
     },
 });
 

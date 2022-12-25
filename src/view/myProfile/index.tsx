@@ -1,5 +1,6 @@
 import "./style.scss";
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Nav from "../nav";
@@ -48,13 +49,9 @@ const MyProfile = function () {
             .catch((err) => console.log(err));
     }, []);
 
-    const profileImgList = [
-        "/images/user-solid.svg",
-        "/images/cat-solid.svg",
-        "/images/dog-solid.svg",
-        "/images/dragon-solid.svg",
-        "/images/github.svg",
-    ];
+    const profileImgList = useSelector(
+        (state: { imageSlice: string[] }) => state.imageSlice
+    );
 
     return (
         <div className="myprofile">

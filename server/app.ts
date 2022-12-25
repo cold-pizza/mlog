@@ -30,12 +30,7 @@ const sessionObj = {
 app.use(session(sessionObj));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(
-    cors({
-        origin: ["http://localhost:3000", "http://localhost:3010"],
-        Credential: true,
-    })
-);
+app.use(cors());
 
 app.post("/api/users/login", (req, res) => {
     const { email, pw } = req.body;

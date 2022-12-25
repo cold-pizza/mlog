@@ -1,6 +1,6 @@
-import React from "react";
 import "./App.scss";
-import { Route, Switch, useHistory } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
+import axios from "axios";
 
 import Main from "./view/main/index";
 import Login from "./view/login";
@@ -13,8 +13,9 @@ import UpdatePost from "./view/updatePost";
 import isLogin from "./controller/isLogin";
 import MbtiPost from "./view/mbtiPost";
 
+axios.defaults.baseURL = `http://localhost:3010`;
+
 function App() {
-    const history = useHistory();
     return (
         <div className="App">
             <Switch>
@@ -40,7 +41,6 @@ function App() {
                         return isLogin() ? <MyProfile /> : <Main />;
                     }}
                 />
-                {/* <MyprofileRoute /> */}
             </Switch>
         </div>
     );

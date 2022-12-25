@@ -27,40 +27,48 @@ const Search = function () {
             </form>
             <section className="search-list">
                 {list
-                    .filter((val: any) => {
+                    .filter((val: { title: string }) => {
                         if (search === "") {
                             return val;
                         } else if (val.title.includes(search)) {
                             return val;
                         }
                     })
-                    .map((list: any) => {
-                        return (
-                            <div className="post" key={list.title}>
-                                <div
-                                    onClick={() =>
-                                        history.push(
-                                            `/post/${list.writer}/${list.days}`
-                                        )
-                                    }
-                                    className="post-info"
-                                >
-                                    <div className="post-header">
-                                        <span className="title">
-                                            {list.title}
-                                        </span>
-                                    </div>
-                                    <div className="time-table">
-                                        <span className="day">{list.days}</span>
-                                        <div className="text-line"></div>
-                                        <span className="coment">
-                                            {list.writer}
-                                        </span>
+                    .map(
+                        (list: {
+                            title: string;
+                            writer: string;
+                            days: string;
+                        }) => {
+                            return (
+                                <div className="post" key={list.title}>
+                                    <div
+                                        onClick={() =>
+                                            history.push(
+                                                `/post/${list.writer}/${list.days}`
+                                            )
+                                        }
+                                        className="post-info"
+                                    >
+                                        <div className="post-header">
+                                            <span className="title">
+                                                {list.title}
+                                            </span>
+                                        </div>
+                                        <div className="time-table">
+                                            <span className="day">
+                                                {list.days}
+                                            </span>
+                                            <div className="text-line"></div>
+                                            <span className="coment">
+                                                {list.writer}
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        );
-                    })}
+                            );
+                        }
+                    )}
             </section>
         </div>
     );

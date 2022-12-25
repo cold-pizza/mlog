@@ -36,6 +36,7 @@
     -   src
         -   view (컴포넌트)
         -   controller (기능)
+        -   store (redux toolkit)
         -   App.tsx
         -   index.tsx
         -   types.d.ts

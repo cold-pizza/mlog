@@ -1,17 +1,14 @@
 import { useHistory } from "react-router";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import "./style.scss";
 
 import logout from "../../controller/logout";
 
 const Nav = function () {
-    const profileImgList = [
-        "/images/user-solid.svg",
-        "/images/cat-solid.svg",
-        "/images/dog-solid.svg",
-        "/images/dragon-solid.svg",
-        "/images/github.svg",
-    ];
+    const profileImgList = useSelector(
+        (state: { imageSlice: string[] }) => state.imageSlice
+    );
 
     const history = useHistory();
     const [profileSwitch, setProfileSwitch] = useState(false);
