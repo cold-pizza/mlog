@@ -1,8 +1,9 @@
 .nav {
+    width: 100%;
     position: relative;
     margin-top: 10px;
     margin-bottom: 40px;
-    width: 100%;
+    max-width: 1000px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -42,5 +43,10 @@
             border: 1px solid black;
             border-radius: 50%;
         }
+    }
+}
+@media screen and (max-width: 768px) {
+    .nav {
+        width: 600px;
     }
 }

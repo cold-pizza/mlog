@@ -46,11 +46,26 @@
             border: 1px solid $main-gary;
             margin-bottom: 100px;
         }
-        .post-contents-writing {
+        .post-contents-area {
             width: 800px;
             text-align: left;
-            span {
+            // @include box-shadow;
+            .contents {
                 color: $main-gary;
+            }
+        }
+    }
+}
+@media screen and (max-width: 768px) {
+    .post-contents {
+        .post-contents-box {
+            .post-contents-info {
+                .post-contents-title {
+                    font-size: 40px;
+                }
+            }
+            .post-contents-area {
+                width: 500px;
             }
         }
     }

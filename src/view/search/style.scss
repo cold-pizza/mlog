@@ -12,10 +12,6 @@
         border-bottom: 1px solid $main-gary;
         padding-left: 4px;
     }
-    button {
-        position: absolute;
-        right: 100px;
-    }
     .search-list {
         @include flexCol;
         .post {
@@ -64,6 +60,20 @@
                 width: 140px;
                 height: 140px;
                 background: gray;
+            }
+        }
+    }
+}
+@media screen and (max-width: 768px) {
+    .search {
+        input {
+            width: 600px;
+        }
+        .search-list {
+            .post {
+                width: 600px;
+                height: 150px;
+                align-items: center;
             }
         }
     }

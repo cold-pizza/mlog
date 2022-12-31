@@ -15,7 +15,7 @@ const CreatePost = function () {
     const [post, setPost] = useState({ title: "", contents: "" });
     let contentsLen = post.contents.length;
     return (
-        <div className="post-write">
+        <div className="post-create">
             <Nav />
             <div className="create-btn-box">
                 <div></div>
@@ -32,7 +32,7 @@ const CreatePost = function () {
                     발행
                 </button>
             </div>
-            <section className="post-write-box">
+            <section className="post-create-box">
                 <input
                     onChange={(e) => {
                         onChange(e, post, setPost);

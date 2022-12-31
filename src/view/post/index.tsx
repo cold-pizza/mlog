@@ -37,9 +37,9 @@ const Post = function () {
                                   }
                                   className="post-info"
                               >
-                                  <div className="post-header">
-                                      <span className="title">{title}</span>
-                                  </div>
+                                  {/* <div className="post-header"> */}
+                                  <span className="title">{title}</span>
+                                  {/* </div> */}
                                   <div className="time-table">
                                       <span className="day">
                                           {getTimeForToday(getToday(days))}

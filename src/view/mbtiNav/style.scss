@@ -1,4 +1,5 @@
 .mbti-nav {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -36,5 +37,13 @@
     .mbti-post {
         font-size: 18px;
         margin-top: 20px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .mbti-nav {
+        align-items: center;
+        .mbti-category {
+            width: 600px;
+        }
     }
 }
