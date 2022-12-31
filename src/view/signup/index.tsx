@@ -1,7 +1,11 @@
+/*
+코드설명: 닉네임, 이메일, 비밀번호, 비밀번호확인란, 전화번호, mbti 등을 작성하는 회원가입 컴포넌트.
+수정날짜: 2022-12-19
+*/
+
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./style.scss";
-
 import onChange from "../../controller/onChange";
 import signup from "../../controller/signup";
 

@@ -1,3 +1,8 @@
+/*
+코드설명: 네비게이션 검색을 누르면 검색할 수 있는 컴포넌트.
+수정날짜: 2022-12-26
+*/
+
 import { useState } from "react";
 import { useHistory } from "react-router";
 import "./style.scss";

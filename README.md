@@ -27,10 +27,6 @@
 -   mbti 카테고리 별 게시글 초기화.
 -   자신의 mbti 카테고리에만 글을 작성할 수 있습니다.
 
-# 프로젝트 구조
-
-![프로젝트 구조](public/images/IMG_0008.JPG)
-
 # 파일 구조
 
 -   mlog
@@ -46,15 +42,15 @@
 
 # 로그인 화면
 
-![](public/images/screen1225.gif)
+![로그인 화면](public/images/screen1225.gif)
 
 # 메인 화면
 
-![](public/images/screen1225-1.gif)
+![메인 화면](public/images/screen1225-1.gif)
 
 # 게시글 화면
 
-![](public/images/screen1225-2.gif)
+![게시글 화면](public/images/screen1225-2.gif)
 
 # 프로젝트 후기
 

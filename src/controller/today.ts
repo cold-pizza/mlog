@@ -1,5 +1,10 @@
-import { Today } from "../types";
-const today: Today = function () {
+/*
+코드기능: 현재 날짜를 구하는 기능.
+수정날짜: 2022-12-23
+*/
+
+import { Time } from "../types";
+const today: Time["Today"] = function () {
     const today = new Date();
     const year = today.getFullYear();
     const month = today.getMonth() + 1;

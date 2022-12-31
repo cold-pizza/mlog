@@ -1,3 +1,8 @@
+/*
+코드기능: 모든 input을 검열하고 회원등록을 요청하는 기능.
+수정날짜: 2022-12-23
+*/
+
 import axios from "axios";
 import { Users } from "../types";
 import filterMbti from "./filterMbti";
@@ -10,7 +15,7 @@ const signup: Users["SignupType"] = function (
     mbti,
     history
 ) {
-    const profileNum = Math.floor(Math.random() * 5);
+    const profileNum = 1;
     const id = email + nickName;
     const spe = pw.search(/[!@#$%^&*]/gi);
     const num = pw.search(/[0-9]/g);
@@ -49,7 +54,6 @@ const signup: Users["SignupType"] = function (
                 profileNum,
             })
             .then((res) => {
-                console.log(res.data);
                 alert("회원가입이 완료되었습니다.");
                 history.push("/");
             })

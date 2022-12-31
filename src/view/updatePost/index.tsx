@@ -1,14 +1,19 @@
+/*
+코드설명: 포스트 수정하는 컴포넌트.
+수정날짜: 2022-12-22
+*/
+
 import "./style.scss";
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router";
 import axios from "axios";
-import { PostContentsType } from "../../types";
+import { State } from "../../types";
 
 const UpdatePost = function () {
     const history = useHistory();
     const [titleInput, setTitleInput] = useState("");
     const [contentsInput, setContentsInput] = useState("");
-    const [post, setPost] = useState<PostContentsType>({
+    const [post, setPost] = useState<State["PostContentsType"]>({
         title: "",
         writer: "",
         days: "",

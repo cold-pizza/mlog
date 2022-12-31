@@ -1,3 +1,8 @@
+/*
+코드설명: 로그인 할 수 있는 컴포넌트.
+수정날짜: 2022-12-18
+*/
+
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import onChange from "../../controller/onChange";
@@ -43,10 +48,6 @@ const Login = function () {
                         로그인
                     </button>
                 </form>
-                {/* <p className="or">또는</p> */}
-                {/* <button className="login-google" type="button">
-                    구글 로그인
-                </button> */}
                 <section className="account-box">
                     <span
                         onClick={() => history.push("/signup")}
@@ -54,11 +55,7 @@ const Login = function () {
                     >
                         회원가입
                     </span>
-                    <div className="find-myAccount">
-                        {/* <span className="find-id">계정 찾기</span>
-                        <div className="bar"></div>
-                        <span className="find-pw">비밀번호 찾기</span> */}
-                    </div>
+                    <div className="find-myAccount"></div>
                 </section>
             </div>
         </div>

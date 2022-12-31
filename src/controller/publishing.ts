@@ -1,8 +1,17 @@
+/*
+코드기능: 회원정보와 포스트작성글을 POST요청해서 발행하는 기능.
+수정날짜: 2022-12-22
+*/
+
 import axios from "axios";
-import { Publishing } from "../types";
+import { Function } from "../types";
 import today from "./today";
 
-const publishing: Publishing = function (title, contents, history) {
+const publishing: Function["PublishingType"] = function (
+    title,
+    contents,
+    history
+) {
     const postId = JSON.parse(localStorage.user).id;
     const writer = JSON.parse(localStorage.user).nickName;
     const mbti = JSON.parse(localStorage.user).mbti;

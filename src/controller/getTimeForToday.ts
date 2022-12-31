@@ -1,5 +1,10 @@
-import { GetTimeForTodayType } from "../types";
-const getTimeForToday: GetTimeForTodayType = function (value) {
+/*
+코드기능: 포스트 게시날짜를 좀 더 가시적으로 변경하는 기능.
+수정날짜: 2022-12-23
+*/
+
+import { Time } from "../types";
+const getTimeForToday: Time["GetTimeForTodayType"] = function (value) {
     const today = new Date();
     const timeValue = new Date(
         value[0],

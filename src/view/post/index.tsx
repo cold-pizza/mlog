@@ -1,12 +1,18 @@
+/*
+코드설명: 통합게시글 컴포넌트.
+수정날짜: 2022-12-22
+*/
+
 import "./style.scss";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { PostType } from "../../types";
+import { State } from "../../types";
 import getTimeForToday from "../../controller/getTimeForToday";
 import getToday from "../../controller/getToday";
+
 const Post = function () {
     const history = useHistory();
-    const [post, setPost] = useState<PostType>([
+    const [post, setPost] = useState<State["PostType"]>([
         {
             title: "",
             writer: "",

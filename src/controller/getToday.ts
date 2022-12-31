@@ -1,5 +1,10 @@
-import { GetTodayType } from "../types";
-const getToday: GetTodayType = function (days) {
+/*
+코드기능: 문자열로 저장된 날짜를 배열로 변환하는 기능.
+수정날짜: 2022-12-23
+*/
+
+import { Time } from "../types";
+const getToday: Time["GetTodayType"] = function (days) {
     let timeArr = [];
     const time = days.split(" ");
     if (time.length >= 2) {

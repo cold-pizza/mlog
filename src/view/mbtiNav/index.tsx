@@ -1,3 +1,8 @@
+/*
+코드설명: mbti카테고리가 있는 컴포넌트.
+수정날짜: 2022-12-25
+*/
+
 import { useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
 import createMbtiPost from "../../controller/createMbtiPost";

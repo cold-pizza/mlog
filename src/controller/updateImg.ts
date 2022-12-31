@@ -1,7 +1,15 @@
-import axios from "axios";
-import { UpdateProfileImgType } from "../types";
+/*
+코드기능: 닉네임과 숫자를 이용하여 이미지변경 요청을 하는 기능.
+수정날짜: 2022-12-18
+*/
 
-const updateProfileImg: UpdateProfileImgType = function (i, id, nickName) {
+import axios from "axios";
+import { Function } from "../types";
+const updateProfileImg: Function["UpdateProfileImgType"] = function (
+    i,
+    id,
+    nickName
+) {
     axios
         .post("/api/myprofile-image/update", {
             i,

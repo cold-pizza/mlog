@@ -1,8 +1,12 @@
+/*
+코드설명: 로고, 검색, 글쓰기, 내 프로필 등이 있는 네비게이션 컴포넌트.
+수정날짜: 2022-12-26
+*/
+
 import { useHistory } from "react-router";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import "./style.scss";
-
 import logout from "../../controller/logout";
 
 const Nav = function () {

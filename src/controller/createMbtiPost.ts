@@ -1,5 +1,9 @@
-type CreateMbtiPostType = (mbti: string) => void;
-const createMbtiPost: CreateMbtiPostType = function (mbti) {
+/*
+코드기능: mbtiNav 카테고리를 클릭하면 해당하는 mbti 포스트를 로컬스토리지에 저장하는 기능.
+수정날짜: 2022-12-22
+*/
+import { Function } from "../types";
+const createMbtiPost: Function["CreateMbtiPostType"] = function (mbti) {
     let arr: {}[] = [];
     const postLen = JSON.parse(localStorage.post).length;
     for (let i = 0; i < postLen; i++) {

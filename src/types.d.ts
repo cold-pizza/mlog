@@ -1,5 +1,6 @@
 import React, { SetStateAction, TextareaHTMLAttributes } from "react";
 
+// users type
 export interface Users {
     LoginType: (email: string, pw: string, history: History<unknown>) => void;
     SignupType: (
@@ -14,100 +15,89 @@ export interface Users {
     LogoutType: (history: History<unknown>) => void;
 }
 
-export type PostContentsType = {
-    title: string;
-    writer: string;
-    days: string;
-    contents: string;
-};
-
-export type OnChange = (
-    e:
-        | React.ChangeEvent<HTMLInputElement>
-        | React.ChangeEvent<TextareaHTMLAttributes>,
-    state: null | {},
-    setState: SetStateAction
-) => void;
-
-export type PsCheckOnChangeType = (
-    e:
-        | React.ChangeEvent<HTMLInputElement>
-        | React.ChangeEvent<TextareaHTMLAttributes>,
-    state: {
-        nickName: string;
-        email: string;
-        password: string;
-        passwordCheck: string;
-        tel: string;
-    },
-    setState: SetStateAction
-) => void;
-
-export type Publishing = (
-    title: string,
-    contents: string,
-    history: History<unknown>
-) => void;
-
-export interface PostWriteProps {
-    title: string;
-    contents: string;
+// onChange type
+export interface OnChange {
+    OnChange: (
+        e:
+            | React.ChangeEvent<HTMLInputElement>
+            | React.ChangeEvent<TextareaHTMLAttributes>,
+        state: null | {},
+        setState: SetStateAction
+    ) => void;
+    PsCheckOnChangeType: (
+        e:
+            | React.ChangeEvent<HTMLInputElement>
+            | React.ChangeEvent<TextareaHTMLAttributes>,
+        state: {
+            nickName: string;
+            email: string;
+            password: string;
+            passwordCheck: string;
+            tel: string;
+        },
+        setState: SetStateAction
+    ) => void;
 }
 
-export type Today = () => string;
-
-export type PostType = {
-    title: string;
-    writer: string;
-    days: string;
-}[];
-
-export interface MypostIprops {
-    post: PostType;
+// state type
+export interface State {
+    PostContentsType: {
+        title: string;
+        writer: string;
+        days: string;
+        contents: string;
+    };
+    PostType: {
+        title: string;
+        writer: string;
+        days: string;
+    }[];
 }
 
-export interface ProfileImgListIprops {
-    nickName: string;
-    id: number;
+// props type
+export interface Iprops {
+    PostWriteProps: { title: string; contents: string };
+    MypostProps: { post: State["PostType"] };
+    DeleteBoxProps: {
+        deleteSwitch: boolean;
+        setDeleteSwitch: SetStateAction;
+        id: number;
+        title: string;
+        history: History<unknown>;
+    };
+    ProfileImgListProps: { nickName: string; id: number };
 }
 
-export interface DeleteBoxIprops {
-    deleteSwitch: boolean;
-    setDeleteSwitch: SetStateAction;
-    id: number;
-    title: string;
-    history: History<unknown>;
+// days type
+export interface Time {
+    GetTimeForTodayType: (value: number[]) => string;
+    GetTodayType: (days: string) => number[];
+    Today: () => string;
 }
 
-export interface NavIprops {
-    contentsLen: number;
-    title: string;
-    contents: string;
+// controller type
+export interface Function {
+    PublishingType: (
+        title: string,
+        contents: string,
+        history: History<unknown>
+    ) => void;
+    UpdateProfileImgType: (i: number, id: number, nickName: string) => void;
+    UpdateNicknameType: (
+        id: number,
+        nickName: string,
+        beforeNickname: string
+    ) => void;
+    DeletePostType: (
+        id: number,
+        title: string,
+        history: History<unknown>
+    ) => void;
+    ReadPostInfoType: (
+        nickName: string,
+        days: string,
+        setPost: SetStateAction
+    ) => void;
+    CreateMbtiPostType: (mbti: string) => void;
+    FilterMbtiType: (mbti: string) => boolean;
 }
-
-export type UpdateProfileImgType = (
-    i: number,
-    id: number,
-    nickName: string
-) => void;
-
-export type UpdateNicknameType = (
-    id: number,
-    nickName: string,
-    beforeNickname: string
-) => void;
-
-export type DeletePostType = (
-    id: number,
-    title: string,
-    history: History<unknown>
-) => void;
-
-export type ReadPostInfoType = (
-    nickName: string,
-    days: string,
-    setPost: SetStateAction
-) => void;
-
-export type GetTimeForTodayType = (value: number[]) => string;
-export type GetTodayType = (days: string) => number[];

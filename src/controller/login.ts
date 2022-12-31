@@ -1,3 +1,8 @@
+/*
+코드기능: 이메일, 비밀번호를 확인하고 로그인 정보를 localstorage에 저장하는 기능.
+수정날짜: 2022-12-23
+*/
+
 import axios from "axios";
 import { Users } from "../types";
 

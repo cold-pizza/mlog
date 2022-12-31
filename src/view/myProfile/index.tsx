@@ -1,3 +1,8 @@
+/*
+코드설명: 내 정보를 수정할 수 있는 컴포넌트.
+수정날짜: 2022-12-26
+*/
+
 import "./style.scss";
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
@@ -5,8 +10,7 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Nav from "../nav";
 import Mypost from "../myPost";
-import { PostType } from "../../types";
-
+import { State } from "../../types";
 import ProfileImgList from "./ProfileImgLIst";
 import updateNickname from "../../controller/updateNickname";
 
@@ -24,12 +28,15 @@ const MyProfile = function () {
     const [fixSwitch, setFixSwitch] = useState(false);
     const [imgSwitch, setImgSwitch] = useState(false);
     const [nickNameInput, setNickNameInput] = useState("");
+    const profileImgList = useSelector(
+        (state: { imageSlice: string[] }) => state.imageSlice
+    );
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setNickNameInput(e.target.value);
     };
 
-    const [post, setPost] = useState<PostType>([
+    const [post, setPost] = useState<State["PostType"]>([
         {
             title: "",
             writer: "",
@@ -48,10 +55,6 @@ const MyProfile = function () {
             })
             .catch((err) => console.log(err));
     }, []);
-
-    const profileImgList = useSelector(
-        (state: { imageSlice: string[] }) => state.imageSlice
-    );
 
     return (
         <div className="myprofile">

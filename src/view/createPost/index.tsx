@@ -1,8 +1,12 @@
-import { useState, useRef } from "react";
+/*
+코드설명: 글작성을 클릭하면 나오는 포스트를 발행할 수 있는 컴포넌트.
+수정날짜: 2022-12-22
+*/
+
+import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./style.scss";
 import Nav from "../nav";
-
 import onChange from "../../controller/onChange";
 import publishing from "../../controller/publishing";
 
@@ -23,7 +27,6 @@ const CreatePost = function () {
                         } else if (contentsLen >= 500) {
                             alert("가용 텍스트를 초과했습니다.");
                         } else publishing(post.title, post.contents, history);
-                        console.log(post.contents);
                     }}
                 >
                     발행

@@ -1,7 +1,12 @@
+/*
+코드설명: 내 포스트를 삭제하는 컴포넌트.
+수정날짜: 2022-12-22
+*/
+
 import "./style.scss";
-import { DeleteBoxIprops } from "../../../types";
+import { Iprops } from "../../../types";
 import deletePost from "../../../controller/deletePost";
-const DeleteBox: React.FC<DeleteBoxIprops> = function (props) {
+const DeleteBox: React.FC<Iprops["DeleteBoxProps"]> = function (props) {
     return (
         <section className="delete-box">
             <p>삭제하시겠습니까?</p>

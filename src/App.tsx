@@ -1,7 +1,12 @@
+/*
+작성자: 박재홍
+코드설명: Component들을 import해서 <Switch>문 안에서 <Route> 출력하는 코드.
+수정날짜: 2022-12-26
+*/
 import "./App.scss";
 import { Route, Switch } from "react-router-dom";
 import axios from "axios";
-
+// import Component
 import Main from "./view/main/index";
 import Login from "./view/login";
 import SignUp from "./view/signup";
@@ -12,7 +17,7 @@ import CreatePost from "./view/createPost";
 import UpdatePost from "./view/updatePost";
 import isLogin from "./controller/isLogin";
 import MbtiPost from "./view/mbtiPost";
-
+// default url
 axios.defaults.baseURL = `http://localhost:3010`;
 
 function App() {
@@ -29,6 +34,7 @@ function App() {
                     path="/update/post/:id/:id"
                     render={() => <UpdatePost />}
                 />
+                {/* 로그인되어 있으면 url접근 허용. */}
                 <Route
                     path="/create-post"
                     render={() => {

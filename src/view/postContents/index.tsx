@@ -1,8 +1,13 @@
+/*
+코드설명: 포스트 글을 볼 수 있는 컴포넌트. 내 글이면 수정, 삭제란이 생성됨.
+수정날짜: 2022-12-22
+*/
+
 import "./style.scss";
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router";
 import Nav from "../nav";
-import { PostContentsType } from "../../types";
+import { State } from "../../types";
 import DeleteBox from "./deleteBox";
 import readPostInfo from "../../controller/readPostInfo";
 
@@ -14,7 +19,7 @@ const PostContents = function () {
         : null;
 
     const [deleteSwitch, setDeleteSwitch] = useState(false);
-    const [post, setPost] = useState<PostContentsType>({
+    const [post, setPost] = useState<State["PostContentsType"]>({
         title: "",
         writer: "",
         days: "",

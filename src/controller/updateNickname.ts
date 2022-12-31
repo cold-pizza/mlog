@@ -1,6 +1,11 @@
+/*
+코드기능: 회원id, 변경닉네임, 이전닉네임을 이용해서 닉네임 변경하는 기능.
+수정날짜: 2022-12-23
+*/
+
 import axios from "axios";
-import { UpdateNicknameType } from "../types";
-const updateNickname: UpdateNicknameType = function (
+import { Function } from "../types";
+const updateNickname: Function["UpdateNicknameType"] = function (
     id,
     nickName,
     beforeNickname

@@ -1,15 +1,20 @@
-import "./style.scss";
-import { ProfileImgListIprops } from "../../../types";
-import updateImg from "../../../controller/updateImg";
+/*
+코드설명: 기본이미지 5개를 정렬하고 변경할 이미지를 선택하는 컴포넌트.
+수정날짜: 2022-12-26
+*/
 
-const ProfileImgList: React.FC<ProfileImgListIprops> = function (props) {
-    const profileImgList = [
-        "/images/user-solid.svg",
-        "/images/cat-solid.svg",
-        "/images/dog-solid.svg",
-        "/images/dragon-solid.svg",
-        "/images/github.svg",
-    ];
+import "./style.scss";
+import { Iprops } from "../../../types";
+import updateImg from "../../../controller/updateImg";
+import { useSelector } from "react-redux";
+
+const ProfileImgList: React.FC<Iprops["ProfileImgListProps"]> = function (
+    props
+) {
+    const profileImgList = useSelector(
+        (state: { imageSlice: string[] }) => state.imageSlice
+    );
+
     return (
         <div className="profile-img-list">
             <span>이미지를 선택해주세요.</span>

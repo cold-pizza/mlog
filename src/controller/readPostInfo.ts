@@ -1,7 +1,16 @@
-import axios from "axios";
-import { ReadPostInfoType } from "../types";
+/*
+코드기능: 닉네임과 날짜로 해당 포스트의 글을 가져오는 기능.
+수정날짜: 2022-12-19
+*/
 
-const readPostInfo: ReadPostInfoType = function (nickName, days, setPost) {
+import axios from "axios";
+import { Function } from "../types";
+
+const readPostInfo: Function["ReadPostInfoType"] = function (
+    nickName,
+    days,
+    setPost
+) {
     axios
         .post("/api/posts-info/read", {
             apiKeyNickname: nickName,
