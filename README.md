@@ -1,6 +1,7 @@
 # 소개
 
 -   mbti별로 분류한 포스트를 작성하고 볼 수 있는 블로그입니다.
+-   Demo: https://cold-pizza.github.io/mlog/
 
 # 적용 기술
 
