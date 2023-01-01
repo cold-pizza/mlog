@@ -64,6 +64,19 @@
         }
     }
 }
+@media screen and (max-width: 964px) {
+    .search {
+        input {
+            width: 900px;
+        }
+        .search-list {
+            .post {
+                width: 900px;
+                height: 180px;
+            }
+        }
+    }
+}
 @media screen and (max-width: 768px) {
     .search {
         input {
@@ -74,6 +87,30 @@
                 width: 600px;
                 height: 150px;
                 align-items: center;
+                .post-info .post-header .title {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 414px) {
+    .search {
+        input {
+            width: 380px;
+        }
+        .search-list {
+            .post {
+                width: 380px;
+                height: 100px;
+                align-items: center;
+                .post-info .post-header .title {
+                    margin: {
+                        top: 0;
+                        bottom: 10px;
+                    }
+                    font-size: 20px;
+                }
             }
         }
     }

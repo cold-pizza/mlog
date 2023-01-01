@@ -12,6 +12,9 @@
             border: none;
             border-radius: 4px;
         }
+        .create-btn:hover {
+            background: #adadad;
+        }
     }
     .post-create-box {
         display: flex;
@@ -19,7 +22,6 @@
         align-items: center;
         input {
             font-size: 50px;
-            outline: none;
             border: none;
             margin-bottom: 40px;
         }
@@ -27,7 +29,8 @@
             font-size: 24px;
             width: 1000px;
             height: 400px;
-            border: none;
+            border: 1px solid black;
+            outline: none;
             resize: none;
         }
     }
@@ -47,7 +50,28 @@
                 font-size: 30px;
             }
             textarea {
-                width: 500px;
+                width: 600px;
+            }
+        }
+    }
+}
+@media screen and (max-width: 414px) {
+    .post-create {
+        align-items: center;
+        .create-btn-box {
+            .create-btn {
+                margin-bottom: 20px;
+            }
+        }
+        .post-create-box {
+            .text-length {
+                font-size: 12px;
+            }
+            input {
+                font-size: 30px;
+            }
+            textarea {
+                width: $small-width;
             }
         }
     }

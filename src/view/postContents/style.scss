@@ -70,3 +70,18 @@
         }
     }
 }
+@media screen and (max-width: 414px) {
+    .post-contents {
+        .post-contents-box {
+            .post-contents-info {
+                .post-contents-title {
+                    font-size: 30px;
+                }
+            }
+            .post-contents-area {
+                width: $small-width;
+                font-size: 16px;
+            }
+        }
+    }
+}

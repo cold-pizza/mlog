@@ -47,3 +47,11 @@
         }
     }
 }
+@media screen and (max-width: 414px) {
+    .mbti-nav {
+        align-items: center;
+        .mbti-category {
+            width: 380px;
+        }
+    }
+}

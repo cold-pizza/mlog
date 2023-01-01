@@ -3,6 +3,9 @@
     @include flexCol;
     .myprofile-box {
         width: 1000px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         .myprofile-info {
             width: 1000px;
             height: 150px;
@@ -18,7 +21,6 @@
                 .myprofile-image {
                     width: 100px;
                     height: 100px;
-                    // background: $main-gary;
                     margin-right: 20px;
                     border-radius: 50%;
                     border: 1px solid $main-gary;
@@ -35,14 +37,17 @@
                         margin-bottom: 10px;
                     }
                 }
-                .coment {
-                    font-size: 16px;
-                    color: $main-gary;
-                }
             }
             .myprofile-fix-btn {
                 font-size: 14px;
                 margin-right: 10px;
+                border-radius: 4px;
+                border: none;
+                width: 50px;
+                height: 30px;
+            }
+            .myprofile-fix-btn:hover {
+                background: #adadad;
             }
         }
         .my-post-tag {
@@ -50,6 +55,57 @@
             @include flexRow;
             justify-content: space-between;
             margin-bottom: 10px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .myprofile {
+        .myprofile-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .myprofile-info {
+                position: relative;
+                width: 600px;
+                .myprofile-fix-box {
+                    position: absolute;
+                    top: 70px;
+                    right: 0;
+                    display: flex;
+                    flex-direction: row;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 414px) {
+    .myprofile {
+        .myprofile-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .myprofile-info {
+                width: 380px;
+                .myprofile-meta-info {
+                    .myprofile-image {
+                        width: 60px;
+                        height: 60px;
+                    }
+                    .nick-name {
+                        font-size: 20px;
+                    }
+                    .fix-box {
+                        .nick-name-input {
+                            font-size: 18px;
+                        }
+                    }
+                }
+                .myprofile-fix-btn {
+                    width: 35px;
+                    height: 25px;
+                }
+            }
         }
     }
 }

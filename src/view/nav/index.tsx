@@ -21,7 +21,7 @@ const Nav = function () {
     return (
         <div className="nav">
             <div onClick={() => history.push("/")} className="nav-logo">
-                <img src="/images/mlog-logo.png" alt="#" />
+                <img src="./images/mlog-logo.png" alt="#" />
             </div>
             <section className="nav-item">
                 {pathName === "/create-post" ? null : (

@@ -46,6 +46,24 @@
     }
 }
 
+@media screen and (max-width: 964px) {
+    .post-list {
+        .post {
+            max-width: 900px;
+            max-height: 180px;
+            align-items: center;
+            .post-info {
+                margin: 0px;
+                .title {
+                    margin: {
+                        top: 0;
+                        bottom: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
 @media screen and (max-width: 768px) {
     .post-list {
         .post {
@@ -55,7 +73,30 @@
             .post-info {
                 margin: 0px;
                 .title {
-                    margin-bottom: 15px;
+                    margin: {
+                        top: 0;
+                        bottom: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 414px) {
+    .post-list {
+        .post {
+            max-width: 380px;
+            max-height: 100px;
+            align-items: center;
+            .post-info {
+                align-items: flex-start;
+                margin: 0px;
+                .title {
+                    margin: {
+                        top: 0;
+                        bottom: 10px;
+                    }
+                    font-size: 20px;
                 }
             }
         }

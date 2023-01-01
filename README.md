@@ -41,6 +41,10 @@
     -   server
         -   app.ts
 
+# 수정사항
+
+-
+
 # 로그인 화면
 
 ![로그인 화면](public/images/screen1225.gif)

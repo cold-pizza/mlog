@@ -90,12 +90,13 @@ const MyProfile = function () {
                         ) : (
                             <span className="nick-name">{nickName}</span>
                         )}
+                        {/* 이미지 선택란 */}
                         {imgSwitch ? (
                             <ProfileImgList nickName={nickName} id={id} />
                         ) : null}
                     </div>
                     {fixSwitch ? (
-                        <div>
+                        <div className="myprofile-fix-box">
                             <button
                                 onClick={() => {
                                     if (nickName === nickNameInput) {
@@ -114,6 +115,7 @@ const MyProfile = function () {
                                 저장
                             </button>
                             <button
+                                className="myprofile-fix-btn"
                                 onClick={() => {
                                     if (imgSwitch) {
                                         setImgSwitch(!imgSwitch);
