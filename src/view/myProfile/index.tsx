@@ -82,7 +82,7 @@ const MyProfile = function () {
                                     onClick={() => {
                                         setImgSwitch(!imgSwitch);
                                     }}
-                                    className="myprofile-image-fix"
+                                    className="myprofile-image-fix-btn"
                                 >
                                     이미지 변경
                                 </button>

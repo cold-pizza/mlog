@@ -5,7 +5,6 @@
 */
 
 import "./App.scss";
-import { useRef } from "react";
 import { Route, Switch } from "react-router-dom";
 import axios from "axios";
 // import Component
@@ -24,9 +23,8 @@ import Footer from "./view/footer";
 axios.defaults.baseURL = `http://localhost:3010`;
 
 function App() {
-    const scrollRef = useRef(null);
     return (
-        <div ref={scrollRef} className="App">
+        <div className="App">
             <div className="App-box">
                 <Switch>
                     <Route path="/" exact render={() => <Main />} />
@@ -57,7 +55,7 @@ function App() {
                     />
                 </Switch>
             </div>
-            <Footer />
+            <Route path="/" exact render={() => <Footer />} />
         </div>
     );
 }

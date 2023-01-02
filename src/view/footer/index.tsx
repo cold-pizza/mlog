@@ -38,15 +38,15 @@ const Footer = () => {
                     </ul>
                 </section>
                 <p
-                    onClick={() => {
-                        alert("준비중입니다.");
-                    }}
+                    onClick={() =>
+                        window.scrollTo({ top: 0, behavior: "smooth" })
+                    }
                     className="scroll-up"
                 >
                     맨위로
                 </p>
             </div>
-            <footer className="trade-mark">(C) mlog.™</footer>
+            <footer className="trade-mark">mlog™</footer>
         </footer>
     );
 };
