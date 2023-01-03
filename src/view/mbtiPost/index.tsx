@@ -19,6 +19,7 @@ const MbtiPost = () => {
             title: "",
             writer: "",
             days: "",
+            viewCount: 0,
         },
     ]);
     useEffect(() => {

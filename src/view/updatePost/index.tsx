@@ -18,6 +18,7 @@ const UpdatePost = function () {
         writer: "",
         days: "",
         contents: "",
+        viewCount: 0,
     });
 
     const updateTitleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {

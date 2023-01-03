@@ -24,6 +24,7 @@ const PostContents = function () {
         writer: "",
         days: "",
         contents: "",
+        viewCount: 0,
     });
 
     useEffect(() => {
@@ -45,7 +46,10 @@ const PostContents = function () {
                     <div className="post-contents-info-box">
                         <div className="post-contents-meta-info">
                             <span>{post.writer}</span>
-                            <span>{post.days}</span>
+                            <div className="line"></div>
+                            <span className="days">{post.days}</span>
+                            <div className="line"></div>
+                            <span>view {post.viewCount}</span>
                         </div>
                         {usersName !== post.writer ? null : (
                             <div className="fix-box">

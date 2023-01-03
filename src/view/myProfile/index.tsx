@@ -41,6 +41,7 @@ const MyProfile = function () {
             title: "",
             writer: "",
             days: "",
+            viewCount: 0,
         },
     ]);
 

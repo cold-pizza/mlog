@@ -9,7 +9,6 @@ import Nav from "../nav";
 import MbtiNav from "../mbtiNav";
 import Post from "../post";
 import getPost from "../../controller/getPost";
-import Footer from "../footer";
 
 const Main = function () {
     useEffect(() => {

@@ -9,6 +9,7 @@ import { useHistory } from "react-router-dom";
 import { State } from "../../types";
 import getTimeForToday from "../../controller/getTimeForToday";
 import getToday from "../../controller/getToday";
+import updateViewCount from "../../controller/updateViewCount";
 
 const Post = function () {
     const history = useHistory();
@@ -17,6 +18,7 @@ const Post = function () {
             title: "",
             writer: "",
             days: "",
+            viewCount: 0,
         },
     ]);
 
@@ -28,13 +30,14 @@ const Post = function () {
     return (
         <section className="post-list">
             {post
-                ? post.map(({ title, days, writer }) => {
+                ? post.map(({ title, days, writer, viewCount }) => {
                       return (
                           <div className="post" key={title}>
                               <div
-                                  onClick={() =>
-                                      history.push(`/post/${writer}/${days}`)
-                                  }
+                                  onClick={() => {
+                                      updateViewCount(days, writer, viewCount);
+                                      history.push(`/post/${writer}/${days}`);
+                                  }}
                                   className="post-info"
                               >
                                   {/* <div className="post-header"> */}

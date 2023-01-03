@@ -46,11 +46,13 @@ export interface State {
         writer: string;
         days: string;
         contents: string;
+        viewCount: number;
     };
     PostType: {
         title: string;
         writer: string;
         days: string;
+        viewCount: number;
     }[];
 }
 
@@ -100,4 +102,9 @@ export interface Function {
     ) => void;
     CreateMbtiPostType: (mbti: string) => void;
     FilterMbtiType: (mbti: string) => boolean;
+    UpdateViewCountType: (
+        days: string,
+        writer: string,
+        viewCount: number
+    ) => void;
 }
