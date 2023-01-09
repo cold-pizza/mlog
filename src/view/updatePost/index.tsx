@@ -14,6 +14,7 @@ const UpdatePost = function () {
     const [titleInput, setTitleInput] = useState("");
     const [contentsInput, setContentsInput] = useState("");
     const [post, setPost] = useState<State["PostContentsType"]>({
+        postId: "",
         title: "",
         writer: "",
         days: "",

@@ -110,7 +110,7 @@ app.post("/api/posts/create", (req, res) => {
 });
 
 app.get("/api/posts/read", (req, res) => {
-    var sql = "SELECT title, writer, days, mbti, viewCount FROM post";
+    var sql = "SELECT postId, title, writer, days, mbti, viewCount FROM post";
     connection.query(sql, (err, result) => {
         if (err) console.log(err);
         res.send(result);
@@ -120,11 +120,35 @@ app.get("/api/posts/read", (req, res) => {
 app.post("/api/posts-info/read", (req, res) => {
     const { apiKeyNickname, apiKeyDays } = req.body;
     var sql =
-        "SELECT title, writer, days, contents, viewCount FROM post WHERE days = ? and writer = ?";
+        "SELECT postId, title, writer, days, contents, viewCount FROM post WHERE days = ? and writer = ?";
     connection.query(sql, [apiKeyDays, apiKeyNickname], (err, result) => {
         if (err) console.log(err);
         console.log(result);
         res.send(result[0]);
+    });
+});
+
+app.post("/api/posts-comments/create", (req, res) => {
+    const { replyId, title, writer, days, reply, images } = req.body;
+    var sql = "INSERT INTO reply VALUES(?, ?, ?, ?, ?, ?)";
+    connection.query(
+        sql,
+        [title, writer, images, days, reply, replyId],
+        (err, result) => {
+            if (err) console.log(err);
+            console.log(result);
+            res.send("댓글 생성 성공");
+        }
+    );
+});
+
+app.post("/api/posts-comments/read", (req, res) => {
+    const { replyId } = req.body;
+    var sql = "SELECT * FROM reply where replyId = ?";
+    connection.query(sql, [replyId], (err, result) => {
+        if (err) console.log(err);
+        console.log(result);
+        res.send(result);
     });
 });
 

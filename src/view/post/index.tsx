@@ -15,6 +15,7 @@ const Post = function () {
     const history = useHistory();
     const [post, setPost] = useState<State["PostType"]>([
         {
+            postId: "",
             title: "",
             writer: "",
             days: "",
@@ -40,9 +41,7 @@ const Post = function () {
                                   }}
                                   className="post-info"
                               >
-                                  {/* <div className="post-header"> */}
                                   <span className="title">{title}</span>
-                                  {/* </div> */}
                                   <div className="time-table">
                                       <span className="day">
                                           {getTimeForToday(getToday(days))}

@@ -56,10 +56,56 @@
         }
         .post-contents-area {
             width: 800px;
+            height: 500px;
             text-align: left;
             // @include box-shadow;
             .contents {
                 color: $main-gary;
+            }
+        }
+    }
+    .comment-container {
+        width: 100%;
+        .line {
+            width: 100%;
+            border: 1px solid black;
+            margin-bottom: 10px;
+        }
+        .comment-count {
+            font-size: 15px;
+        }
+        .comment-form {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 20px 14px;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-bottom: 20px;
+            .writer {
+                margin-right: 10px;
+            }
+            textarea {
+                background: #eee;
+                border: $main-gary;
+                outline: none;
+                margin-right: 10px;
+                width: 700px;
+                height: 50px;
+                padding: 4px 8px;
+                border-radius: 4px;
+                resize: none;
+            }
+            .comment-btn {
+                border: none;
+                font-size: 14px;
+                padding: 8px 10px;
+                border-radius: 4px;
+            }
+            .comment-btn:hover {
+                background: $btn-hover-color;
+                color: white;
             }
         }
     }

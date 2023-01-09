@@ -12,9 +12,10 @@ const publishing: Function["PublishingType"] = function (
     contents,
     history
 ) {
-    const postId = JSON.parse(localStorage.user).id;
     const writer = JSON.parse(localStorage.user).nickName;
     const mbti = JSON.parse(localStorage.user).mbti;
+    const rNum = Math.floor(Math.random() * 10000);
+    const postId = title.length * 99 * contents.length * writer.length + rNum;
     let days = today();
     axios
         .post("/api/posts/create", {

@@ -10,16 +10,21 @@ import Nav from "../nav";
 import { State } from "../../types";
 import DeleteBox from "./deleteBox";
 import readPostInfo from "../../controller/readPostInfo";
+import Comments from "./comments";
+import onChange from "../../controller/onChange";
+import createComments from "../../controller/createComments";
+import today from "../../controller/today";
 
 const PostContents = function () {
+    const [comments, setComments] = useState({ comments: "" });
     const history = useHistory();
     const id = localStorage.user ? JSON.parse(localStorage.user).id : 0;
     const usersName = localStorage.user
         ? JSON.parse(localStorage.user).nickName
         : null;
-
     const [deleteSwitch, setDeleteSwitch] = useState(false);
     const [post, setPost] = useState<State["PostContentsType"]>({
+        postId: "",
         title: "",
         writer: "",
         days: "",
@@ -90,6 +95,47 @@ const PostContents = function () {
                         {post.contents}
                     </span>
                 </section>
+            </section>
+            <section className="comment-container">
+                <div className="line"></div>
+                <span className="comment-count">0개의 댓글</span>
+                <form className="comment-form" action="#">
+                    <span className="writer">{usersName}</span>
+                    <textarea
+                        name="comments"
+                        onChange={(e) => onChange(e, comments, setComments)}
+                        placeholder="의견을 공유해주세요."
+                    />
+                    <button
+                        onClick={() => {
+                            if (!localStorage.user) {
+                                alert("로그인 해주세요.");
+                                return false;
+                            } else if (comments.comments.length <= 0) {
+                                alert("댓글을 작성해주세요.");
+                                return false;
+                            } else
+                                createComments(
+                                    post.title,
+                                    usersName,
+                                    today(),
+                                    comments.comments,
+                                    post.postId
+                                );
+                        }}
+                        className="comment-btn"
+                    >
+                        댓글 쓰기
+                    </button>
+                </form>
+                <ul className="comment-list">
+                    {post.postId ? (
+                        <Comments
+                            comments={comments.comments}
+                            replyId={post.postId}
+                        />
+                    ) : null}
+                </ul>
             </section>
         </div>
     );

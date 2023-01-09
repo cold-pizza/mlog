@@ -16,6 +16,7 @@ const MbtiPost = () => {
     const history = useHistory();
     const [post, setPost] = useState<State["PostType"]>([
         {
+            postId: "",
             title: "",
             writer: "",
             days: "",

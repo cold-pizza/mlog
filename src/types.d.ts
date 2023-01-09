@@ -42,6 +42,7 @@ export interface OnChange {
 // state type
 export interface State {
     PostContentsType: {
+        postId: string;
         title: string;
         writer: string;
         days: string;
@@ -49,6 +50,7 @@ export interface State {
         viewCount: number;
     };
     PostType: {
+        postId: string;
         title: string;
         writer: string;
         days: string;
@@ -68,6 +70,7 @@ export interface Iprops {
         history: History<unknown>;
     };
     ProfileImgListProps: { nickName: string; id: number };
+    CommentsProps: { comments: string; replyId: string };
 }
 
 // days type
@@ -107,4 +110,12 @@ export interface Function {
         writer: string,
         viewCount: number
     ) => void;
+    CreateCommentsType: (
+        title: string,
+        writer: string,
+        days: string,
+        comments: string,
+        postId: string
+    ) => void;
+    GetCommentsType: (replyId: string, setState: SetStateAction) => void;
 }

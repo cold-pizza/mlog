@@ -38,6 +38,7 @@ const MyProfile = function () {
 
     const [post, setPost] = useState<State["PostType"]>([
         {
+            postId: "",
             title: "",
             writer: "",
             days: "",
