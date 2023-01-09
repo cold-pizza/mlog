@@ -9,14 +9,21 @@
     justify-content: space-between;
     align-items: center;
     .profile-box {
-        border: 1px solid black;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #ccc;
+        padding: 4px 6px;
+        border-radius: 4px;
         background: white;
         position: absolute;
         top: 60px;
         right: -10px;
         li {
             font-size: 14px;
-            margin-bottom: 10px;
+            margin: 5px 0;
+            color: #747474;
         }
     }
     .nav-logo img {

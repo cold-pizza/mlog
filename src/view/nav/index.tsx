@@ -78,8 +78,6 @@ const Nav = function () {
             </section>
             {profileSwitch ? (
                 <ul className="profile-box">
-                    {/* <li>임시 글</li> */}
-                    {/* <li>즐겨찾기</li> */}
                     <li
                         onClick={() => {
                             if (!localStorage.user) {
