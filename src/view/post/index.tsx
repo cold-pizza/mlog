@@ -7,9 +7,9 @@ import "./style.scss";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { State } from "../../types";
-import getTimeForToday from "../../controller/getTimeForToday";
-import getToday from "../../controller/getToday";
-import updateViewCount from "../../controller/updateViewCount";
+import getTimeForToday from "../../controller/time/getTimeForToday";
+import getToday from "../../controller/time/getToday";
+import updateViewCount from "../../controller/update/updateViewCount";
 
 const Post = function () {
     const history = useHistory();

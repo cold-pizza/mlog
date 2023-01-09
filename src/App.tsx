@@ -16,7 +16,7 @@ import PostContents from "./view/postContents";
 import Search from "./view/search";
 import CreatePost from "./view/createPost";
 import UpdatePost from "./view/updatePost";
-import isLogin from "./controller/isLogin";
+import isLogin from "./controller/users/isLogin";
 import MbtiPost from "./view/mbtiPost";
 import Footer from "./view/footer";
 // default url

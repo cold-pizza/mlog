@@ -9,11 +9,11 @@ import { useHistory } from "react-router";
 import Nav from "../nav";
 import { State } from "../../types";
 import DeleteBox from "./deleteBox";
-import readPostInfo from "../../controller/readPostInfo";
+import readPostInfo from "../../controller/get/getPostInfo";
 import Comments from "./comments";
 import onChange from "../../controller/onChange";
-import createComments from "../../controller/createComments";
-import today from "../../controller/today";
+import createComments from "../../controller/create/createComments";
+import today from "../../controller/time/today";
 
 const PostContents = function () {
     const [comments, setComments] = useState({ comments: "" });

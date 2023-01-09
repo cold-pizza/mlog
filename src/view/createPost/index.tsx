@@ -8,7 +8,7 @@ import { useHistory } from "react-router-dom";
 import "./style.scss";
 import Nav from "../nav";
 import onChange from "../../controller/onChange";
-import publishing from "../../controller/publishing";
+import createPost from "../../controller/create/createPost";
 
 const CreatePost = function () {
     const history = useHistory();
@@ -26,7 +26,7 @@ const CreatePost = function () {
                             alert("내용을 입력해주세요.");
                         } else if (contentsLen >= 500) {
                             alert("가용 텍스트를 초과했습니다.");
-                        } else publishing(post.title, post.contents, history);
+                        } else createPost(post.title, post.contents, history);
                     }}
                 >
                     발행

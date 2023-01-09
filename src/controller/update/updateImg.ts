@@ -4,7 +4,7 @@
 */
 
 import axios from "axios";
-import { Function } from "../types";
+import { Function } from "../../types";
 const updateProfileImg: Function["UpdateProfileImgType"] = function (
     i,
     id,

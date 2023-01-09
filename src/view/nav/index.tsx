@@ -7,7 +7,7 @@ import { useHistory } from "react-router";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import "./style.scss";
-import logout from "../../controller/logout";
+import logout from "../../controller/users/logout";
 
 const Nav = function () {
     const profileImgList = useSelector(

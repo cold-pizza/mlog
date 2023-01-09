@@ -1,13 +1,14 @@
 /*
 코드기능: 회원정보와 포스트작성글을 POST요청해서 발행하는 기능.
-수정날짜: 2022-12-22
+수정날짜: 2023-01-09
+수정내용: 함수명 publising -> createPost
 */
 
 import axios from "axios";
-import { Function } from "../types";
-import today from "./today";
+import { Function } from "../../types";
+import today from "../time/today";
 
-const publishing: Function["PublishingType"] = function (
+const createPost: Function["CreatePostType"] = function (
     title,
     contents,
     history
@@ -34,4 +35,4 @@ const publishing: Function["PublishingType"] = function (
         .catch((err) => console.log(err));
 };
 
-export default publishing;
+export default createPost;

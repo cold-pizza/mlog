@@ -7,7 +7,7 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./style.scss";
 import onChange from "../../controller/onChange";
-import signup from "../../controller/signup";
+import signup from "../../controller/users/signup";
 
 const SignUp = function () {
     const history = useHistory();

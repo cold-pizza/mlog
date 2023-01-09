@@ -6,7 +6,7 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import onChange from "../../controller/onChange";
-import login from "../../controller/login";
+import login from "../../controller/users/login";
 import "./style.scss";
 
 const Login = function () {

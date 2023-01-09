@@ -82,7 +82,7 @@ export interface Time {
 
 // controller type
 export interface Function {
-    PublishingType: (
+    CreatePostType: (
         title: string,
         contents: string,
         history: History<unknown>
@@ -98,7 +98,7 @@ export interface Function {
         title: string,
         history: History<unknown>
     ) => void;
-    ReadPostInfoType: (
+    GetPostInfoType: (
         nickName: string,
         days: string,
         setPost: SetStateAction

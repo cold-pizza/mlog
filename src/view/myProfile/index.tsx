@@ -12,7 +12,7 @@ import Nav from "../nav";
 import Mypost from "../myPost";
 import { State } from "../../types";
 import ProfileImgList from "./ProfileImgLIst";
-import updateNickname from "../../controller/updateNickname";
+import updateNickname from "../../controller/update/updateNickname";
 
 const MyProfile = function () {
     const history = useHistory();

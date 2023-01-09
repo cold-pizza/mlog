@@ -3,7 +3,7 @@
 수정날짜: 2022-12-23
 */
 
-import { Time } from "../types";
+import { Time } from "../../types";
 const today: Time["Today"] = function () {
     const today = new Date();
     const year = today.getFullYear();

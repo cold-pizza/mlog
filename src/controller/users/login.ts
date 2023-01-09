@@ -4,7 +4,7 @@
 */
 
 import axios from "axios";
-import { Users } from "../types";
+import { Users } from "../../types";
 
 const login: Users["LoginType"] = function (email, pw, history) {
     if (!email) {

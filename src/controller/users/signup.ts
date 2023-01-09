@@ -4,8 +4,8 @@
 */
 
 import axios from "axios";
-import { Users } from "../types";
-import filterMbti from "./filterMbti";
+import { Users } from "../../types";
+import filterMbti from "../filterMbti";
 const signup: Users["SignupType"] = function (
     nickName,
     email,

@@ -4,9 +4,9 @@
 */
 
 import axios from "axios";
-import { Function } from "../types";
+import { Function } from "../../types";
 
-const readPostInfo: Function["ReadPostInfoType"] = function (
+const getPostInfo: Function["GetPostInfoType"] = function (
     nickName,
     days,
     setPost
@@ -22,4 +22,4 @@ const readPostInfo: Function["ReadPostInfoType"] = function (
         .catch((err) => console.log(err));
 };
 
-export default readPostInfo;
+export default getPostInfo;

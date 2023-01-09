@@ -3,7 +3,7 @@
 수정날짜: 2022-12-23
 */
 
-import { Time } from "../types";
+import { Time } from "../../types";
 const getToday: Time["GetTodayType"] = function (days) {
     let timeArr = [];
     const time = days.split(" ");

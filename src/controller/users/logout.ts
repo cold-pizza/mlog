@@ -4,7 +4,7 @@
 */
 
 import axios from "axios";
-import { Users } from "../types";
+import { Users } from "../../types";
 const logout: Users["LogoutType"] = function (history) {
     axios
         .post("/api/users/logout")

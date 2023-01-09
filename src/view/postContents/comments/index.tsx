@@ -3,11 +3,10 @@
 수정날짜: 2023-01-07
 */
 
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Iprops } from "../../../types";
-import getComments from "../../../controller/getComments";
+import getComments from "../../../controller/get/getComments";
 import "./style.scss";
 const Comments: React.FC<Iprops["CommentsProps"]> = (props) => {
     const profileImgList = useSelector(

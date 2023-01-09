@@ -8,8 +8,8 @@ import { useHistory } from "react-router";
 import { State } from "../../types";
 import Nav from "../nav";
 import MbtiNav from "../mbtiNav";
-import getToday from "../../controller/getToday";
-import getTimeForToday from "../../controller/getTimeForToday";
+import getToday from "../../controller/time/getToday";
+import getTimeForToday from "../../controller/time/getTimeForToday";
 import "./style.scss";
 
 const MbtiPost = () => {

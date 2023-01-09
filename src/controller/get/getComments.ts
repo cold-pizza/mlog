@@ -4,7 +4,7 @@
 */
 
 import axios from "axios";
-import { Function } from "../types";
+import { Function } from "../../types";
 const getComments: Function["GetCommentsType"] = (replyId, setState) => {
     axios
         .post("/api/posts-comments/read", { replyId: replyId })

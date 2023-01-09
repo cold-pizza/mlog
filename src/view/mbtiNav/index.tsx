@@ -5,7 +5,7 @@
 
 import { useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
-import createMbtiPost from "../../controller/createMbtiPost";
+import createMbtiPost from "../../controller/create/createMbtiPost";
 import "./style.scss";
 
 const MbtiNav = function () {

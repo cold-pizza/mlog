@@ -8,7 +8,7 @@ import "./style.scss";
 import Nav from "../nav";
 import MbtiNav from "../mbtiNav";
 import Post from "../post";
-import getPost from "../../controller/getPost";
+import getPost from "../../controller/get/getPost";
 
 const Main = function () {
     useEffect(() => {

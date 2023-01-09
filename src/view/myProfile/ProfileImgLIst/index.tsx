@@ -5,7 +5,7 @@
 
 import "./style.scss";
 import { Iprops } from "../../../types";
-import updateImg from "../../../controller/updateImg";
+import updateImg from "../../../controller/update/updateImg";
 import { useSelector } from "react-redux";
 
 const ProfileImgList: React.FC<Iprops["ProfileImgListProps"]> = function (
