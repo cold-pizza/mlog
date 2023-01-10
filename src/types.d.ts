@@ -51,6 +51,7 @@ export interface State {
     };
     PostType: {
         postId: string;
+        mbti: string;
         title: string;
         writer: string;
         days: string;
@@ -103,7 +104,7 @@ export interface Function {
         days: string,
         setPost: SetStateAction
     ) => void;
-    CreateMbtiPostType: (mbti: string) => void;
+    CreateMbtiPostType: (mbti: string, post: State["PostType"]) => void;
     FilterMbtiType: (mbti: string) => boolean;
     UpdateViewCountType: (
         days: string,
@@ -118,4 +119,5 @@ export interface Function {
         postId: string
     ) => void;
     GetCommentsType: (replyId: string, setState: SetStateAction) => void;
+    GetPost: (setState: SetStateAction) => void;
 }

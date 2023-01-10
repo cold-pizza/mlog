@@ -4,18 +4,15 @@
 */
 
 import { Function } from "../../types";
-const createMbtiPost: Function["CreateMbtiPostType"] = function (mbti) {
+const createMbtiPost: Function["CreateMbtiPostType"] = function (mbti, post) {
     let arr: {}[] = [];
-    const postLen = JSON.parse(localStorage.post).length;
-    for (let i = 0; i < postLen; i++) {
-        const post = JSON.parse(localStorage.post)[i];
-        const postMbti = JSON.parse(localStorage.post)[i].mbti;
-
+    for (let i = 0; i < post.length; i++) {
+        const postMbti = post[i].mbti;
         if (postMbti.search(mbti) > -1) {
             if (arr.length > 0) {
-                arr = [...arr, post];
+                arr = [...arr, post[i]];
             } else {
-                arr = [post];
+                arr = [post[i]];
             }
         }
     }

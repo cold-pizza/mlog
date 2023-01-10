@@ -10,12 +10,14 @@ import { State } from "../../types";
 import getTimeForToday from "../../controller/time/getTimeForToday";
 import getToday from "../../controller/time/getToday";
 import updateViewCount from "../../controller/update/updateViewCount";
+import getPost from "../../controller/get/getPost";
 
 const Post = function () {
     const history = useHistory();
     const [post, setPost] = useState<State["PostType"]>([
         {
             postId: "",
+            mbti: "",
             title: "",
             writer: "",
             days: "",
@@ -24,8 +26,7 @@ const Post = function () {
     ]);
 
     useEffect(() => {
-        const post = JSON.parse(localStorage.post);
-        setPost(post);
+        getPost(setPost);
     }, []);
 
     return (

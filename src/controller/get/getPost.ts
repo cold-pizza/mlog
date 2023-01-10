@@ -4,11 +4,12 @@
 */
 
 import axios from "axios";
-const getPost = () => {
+import { Function } from "../../types";
+const getPost: Function["GetPost"] = (setState) => {
     axios
         .get("/api/posts/read")
         .then((res) => {
-            localStorage.setItem("post", JSON.stringify(res.data.reverse()));
+            setState(res.data.reverse());
         })
         .catch((err) => console.log(err));
 };

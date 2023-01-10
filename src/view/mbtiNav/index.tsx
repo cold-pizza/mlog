@@ -6,11 +6,13 @@
 import { useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
 import createMbtiPost from "../../controller/create/createMbtiPost";
+import getPost from "../../controller/get/getPost";
 import "./style.scss";
 
 const MbtiNav = function () {
     const history = useHistory();
     const [mbti, setMbti] = useState("");
+    const [post, setPost] = useState([]);
     const mbtiList = [
         ["I", "E"],
         ["S", "N"],
@@ -20,6 +22,7 @@ const MbtiNav = function () {
     const pathname = window.location.pathname.split("/")[3];
     useEffect(() => {
         const mbti = window.location.pathname.split("/")[3];
+        getPost(setPost);
         setMbti(mbti);
     }, []);
 
@@ -31,7 +34,7 @@ const MbtiNav = function () {
                         <div key={list.toString()} className="mbti-line">
                             <p
                                 onClick={() => {
-                                    createMbtiPost(list[0]);
+                                    createMbtiPost(list[0], post);
                                     history.push(`/mbti/${list[0]}`);
                                     window.location.reload();
                                 }}
@@ -40,7 +43,7 @@ const MbtiNav = function () {
                             </p>
                             <p
                                 onClick={() => {
-                                    createMbtiPost(list[1]);
+                                    createMbtiPost(list[1], post);
                                     history.push(`/mbti/${list[1]}`);
                                     window.location.reload();
                                 }}

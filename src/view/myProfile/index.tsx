@@ -39,6 +39,7 @@ const MyProfile = function () {
     const [post, setPost] = useState<State["PostType"]>([
         {
             postId: "",
+            mbti: "",
             title: "",
             writer: "",
             days: "",

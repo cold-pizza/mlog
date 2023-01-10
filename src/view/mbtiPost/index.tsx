@@ -17,6 +17,7 @@ const MbtiPost = () => {
     const [post, setPost] = useState<State["PostType"]>([
         {
             postId: "",
+            mbti: "",
             title: "",
             writer: "",
             days: "",
@@ -24,8 +25,7 @@ const MbtiPost = () => {
         },
     ]);
     useEffect(() => {
-        const mbtiPost = JSON.parse(localStorage.mbtiPost);
-        setPost(mbtiPost);
+        setPost(JSON.parse(localStorage.mbtiPost));
     }, []);
     return (
         <div className="mbti-post">

@@ -3,18 +3,12 @@
 수정날짜: 2022-12-26
 */
 
-import { useEffect } from "react";
 import "./style.scss";
 import Nav from "../nav";
 import MbtiNav from "../mbtiNav";
 import Post from "../post";
-import getPost from "../../controller/get/getPost";
 
 const Main = function () {
-    useEffect(() => {
-        getPost();
-    }, []);
-
     return (
         <div className="main">
             <Nav />
