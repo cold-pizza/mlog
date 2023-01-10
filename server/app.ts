@@ -162,9 +162,9 @@ app.post("/api/posts/view-count/update", (req, res) => {
 });
 
 app.post("/api/mypost/read", (req, res) => {
-    const { id } = req.body;
-    var sql = "SELECT title, writer, days FROM post WHERE postId = ?";
-    connection.query(sql, [id], (err, result) => {
+    const { writer } = req.body;
+    var sql = "SELECT title, writer, days FROM post WHERE writer = ?";
+    connection.query(sql, [writer], (err, result) => {
         if (err) console.log(err);
         console.log(result);
         res.send(result);

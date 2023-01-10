@@ -52,7 +52,7 @@ const MyProfile = function () {
             setNickNameInput(nickName);
         }
         axios
-            .post("/api/mypost/read", { id })
+            .post("/api/mypost/read", { writer: nickName })
             .then((res) => {
                 setPost(res.data);
             })
