@@ -72,6 +72,19 @@ export interface Iprops {
     };
     ProfileImgListProps: { nickName: string; id: number };
     CommentsProps: { comments: string; replyId: string };
+    MyprofileFixboxProps: {
+        nickNameInput: string;
+        fixSwitch: boolean;
+        setFixSwitch: SetStateAction;
+        imgSwitch: boolean;
+        setImgSwitch: SetStateAction;
+    };
+    FixboxProps: {
+        nickNameInput: string;
+        imgSwitch: boolean;
+        setImgSwitch: SetStateAction;
+        setNickNameInput: SetStateAction;
+    };
 }
 
 // days type
@@ -120,4 +133,5 @@ export interface Function {
     ) => void;
     GetCommentsType: (replyId: string, setState: SetStateAction) => void;
     GetPost: (setState: SetStateAction) => void;
+    GetMypostType: (nickName: string, setState: SetStateAction) => void;
 }

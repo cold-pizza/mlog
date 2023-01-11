@@ -7,12 +7,13 @@ import "./style.scss";
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import axios from "axios";
 import Nav from "../nav";
 import Mypost from "../myPost";
 import { State } from "../../types";
 import ProfileImgList from "./ProfileImgLIst";
-import updateNickname from "../../controller/update/updateNickname";
+import getMypost from "../../controller/get/getMypost";
+import MyprofileFixbox from "./myprofileFixbox";
+import Fixbox from "./fixbox";
 
 const MyProfile = function () {
     const history = useHistory();
@@ -51,12 +52,7 @@ const MyProfile = function () {
         if (nickNameInput === "") {
             setNickNameInput(nickName);
         }
-        axios
-            .post("/api/mypost/read", { writer: nickName })
-            .then((res) => {
-                setPost(res.data);
-            })
-            .catch((err) => console.log(err));
+        getMypost(nickName, setPost);
     }, []);
 
     return (
@@ -72,24 +68,12 @@ const MyProfile = function () {
                         />
 
                         {fixSwitch ? (
-                            <div className="fix-box">
-                                <input
-                                    value={nickNameInput}
-                                    className="nick-name-input"
-                                    onChange={onChange}
-                                    type="text"
-                                    placeholder={nickName}
-                                    name="nickName"
-                                />
-                                <button
-                                    onClick={() => {
-                                        setImgSwitch(!imgSwitch);
-                                    }}
-                                    className="myprofile-image-fix-btn"
-                                >
-                                    이미지 변경
-                                </button>
-                            </div>
+                            <Fixbox
+                                nickNameInput={nickNameInput}
+                                imgSwitch={imgSwitch}
+                                setImgSwitch={setImgSwitch}
+                                setNickNameInput={setNickNameInput}
+                            />
                         ) : (
                             <span className="nick-name">{nickName}</span>
                         )}
@@ -99,36 +83,13 @@ const MyProfile = function () {
                         ) : null}
                     </div>
                     {fixSwitch ? (
-                        <div className="myprofile-fix-box">
-                            <button
-                                onClick={() => {
-                                    if (nickName === nickNameInput) {
-                                        setFixSwitch(!fixSwitch);
-                                    } else {
-                                        setFixSwitch(!fixSwitch);
-                                        updateNickname(
-                                            id,
-                                            nickNameInput,
-                                            nickName
-                                        );
-                                    }
-                                }}
-                                className="myprofile-fix-btn"
-                            >
-                                저장
-                            </button>
-                            <button
-                                className="myprofile-fix-btn"
-                                onClick={() => {
-                                    if (imgSwitch) {
-                                        setImgSwitch(!imgSwitch);
-                                    }
-                                    setFixSwitch(!fixSwitch);
-                                }}
-                            >
-                                취소
-                            </button>
-                        </div>
+                        <MyprofileFixbox
+                            nickNameInput={nickNameInput}
+                            fixSwitch={fixSwitch}
+                            setFixSwitch={setFixSwitch}
+                            imgSwitch={imgSwitch}
+                            setImgSwitch={setImgSwitch}
+                        />
                     ) : (
                         <button
                             onClick={() => {
