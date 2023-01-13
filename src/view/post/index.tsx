@@ -1,6 +1,7 @@
 /*
 코드설명: 통합게시글 컴포넌트.
-수정날짜: 2022-12-22
+수정날짜: 2023-01-13
+수정내용: <Post>/<mbtiPost> 스위칭 기능 추가.
 */
 
 import "./style.scss";
@@ -26,7 +27,13 @@ const Post = function () {
     ]);
 
     useEffect(() => {
-        getPost(setPost);
+        const pathLen = window.location.pathname.split("/").length;
+        if (pathLen < 4) {
+            getPost(setPost);
+        } else {
+            // mbti 포스트 가져오기.
+            setPost(JSON.parse(localStorage.mbtiPost));
+        }
     }, []);
 
     return (

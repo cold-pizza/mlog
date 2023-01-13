@@ -33,10 +33,6 @@ const MyProfile = function () {
         (state: { imageSlice: string[] }) => state.imageSlice
     );
 
-    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setNickNameInput(e.target.value);
-    };
-
     const [post, setPost] = useState<State["PostType"]>([
         {
             postId: "",

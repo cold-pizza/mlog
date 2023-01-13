@@ -1,5 +1,4 @@
 /*
-작성자: 박재홍
 코드설명: Component들을 import해서 <Switch>문 안에서 <Route> 출력하는 코드.
 수정날짜: 2022-12-26
 */
@@ -17,7 +16,6 @@ import Search from "./view/search";
 import CreatePost from "./view/createPost";
 import UpdatePost from "./view/updatePost";
 import isLogin from "./controller/users/isLogin";
-import MbtiPost from "./view/mbtiPost";
 import Footer from "./view/footer";
 // default url
 axios.defaults.baseURL = `http://localhost:3010`;
@@ -28,6 +26,7 @@ function App() {
             <div className="App-box">
                 <Switch>
                     <Route path="/" exact render={() => <Main />} />
+                    <Route path="/mbti/:id" render={() => <Main />} />
                     <Route path="/login" render={() => <Login />} />
                     <Route path="/signup" render={() => <SignUp />} />
                     <Route
@@ -35,7 +34,6 @@ function App() {
                         render={() => <PostContents />}
                     />
                     <Route path="/search" render={() => <Search />} />
-                    <Route path="/mbti/:id" render={() => <MbtiPost />} />
                     <Route
                         path="/update/post/:id/:id"
                         render={() => <UpdatePost />}
