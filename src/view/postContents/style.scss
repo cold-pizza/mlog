@@ -123,6 +123,14 @@
             }
         }
     }
+    .comment-container {
+        max-width: 700px;
+        .comment-form {
+            textarea {
+                max-width: 500px;
+            }
+        }
+    }
 }
 @media screen and (max-width: 414px) {
     .post-contents {
@@ -135,6 +143,14 @@
             .post-contents-area {
                 width: $small-width;
                 font-size: 16px;
+            }
+        }
+    }
+    .comment-container {
+        max-width: 380px;
+        .comment-form {
+            textarea {
+                max-width: 200px;
             }
         }
     }

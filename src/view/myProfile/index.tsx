@@ -23,6 +23,7 @@ const MyProfile = function () {
             history.replace("/");
         }
     }, []);
+
     const profileImg = JSON.parse(localStorage.user).profileImg;
     const nickName = JSON.parse(localStorage.user).nickName;
     const id = JSON.parse(localStorage.user).id;

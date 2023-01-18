@@ -58,7 +58,7 @@ app.post("/api/users/login", (req, res) => {
                         console.log("비밀번호가 다릅니다.");
                         res.send("비밀번호가 다릅니다.");
                     }
-                } else console.log("없는 이메일 입니다.");
+                } else res.send("없는 이메일입니다.");
             }
         );
     }

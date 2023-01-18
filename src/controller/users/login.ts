@@ -22,8 +22,10 @@ const login: Users["LoginType"] = function (email, pw, history) {
             })
             .then((res) => {
                 if (res.data === "비밀번호가 다릅니다.") {
-                    alert("비밀번호가 다릅니다.");
+                    alert(res.data);
                     return false;
+                } else if (res.data === "없는 이메일입니다.") {
+                    alert(res.data);
                 } else {
                     localStorage.setItem("user", JSON.stringify(res.data));
                     if (localStorage.user) history.push("/");
