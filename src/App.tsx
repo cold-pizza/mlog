@@ -17,6 +17,8 @@ import CreatePost from "./view/createPost";
 import UpdatePost from "./view/updatePost";
 import isLogin from "./controller/users/isLogin";
 import Footer from "./view/footer";
+import CustomerCenter from "./view/footer/customerCenter";
+
 // default url
 axios.defaults.baseURL = `http://localhost:3010`;
 
@@ -37,6 +39,10 @@ function App() {
                     <Route
                         path="/update/post/:id/:id"
                         render={() => <UpdatePost />}
+                    />
+                    <Route
+                        path="/customer-center"
+                        render={() => <CustomerCenter />}
                     />
                     {/* 로그인되어 있으면 url접근 허용. */}
                     <Route

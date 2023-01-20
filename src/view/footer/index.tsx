@@ -3,35 +3,39 @@
 수정날짜: 2023-01-01
 */
 
+import { useHistory } from "react-router";
 import "./style.scss";
 const Footer = () => {
-    const footerList1 = ["회사소개", "이용약관", "운영정책"];
-    const footerList2 = ["개인정보처리방침", "청소년보호정책", "고객센터"];
+    const history = useHistory();
+    const footerList1 = [
+        { item: "회사소개", url: "/intro-company" },
+        { item: "이용약관", url: "/terms-conditions" },
+        { item: "운영정책", url: "/operation-policy" },
+    ];
+    const footerList2 = [
+        { item: "개인정보처리방침", url: "/personal-information" },
+        { item: "청소년보호정책", url: "/teenager-protect" },
+        { item: "고객센터", url: "/customer-center" },
+    ];
     return (
         <footer className="footer">
             <h2 className="footer-titles">mlog</h2>
             <div className="container">
                 <section className="list-items">
                     <ul className="footer-list">
-                        {footerList1.map((list, i) => {
+                        {footerList1.map(({ item, url }, i) => {
                             return (
-                                <li
-                                    onClick={() => alert("준비중입니다.")}
-                                    key={i}
-                                >
-                                    {list}
+                                <li onClick={() => history.push(url)} key={i}>
+                                    {item}
                                 </li>
                             );
                         })}
                     </ul>
                     <ul className="footer-list">
-                        {footerList2.map((list, i) => {
+                        {footerList2.map(({ item, url }, i) => {
                             return (
-                                <li
-                                    onClick={() => alert("준비중입니다.")}
-                                    key={i}
-                                >
-                                    {list}
+                                <li onClick={() => history.push(url)} key={i}>
+                                    {item}
                                 </li>
                             );
                         })}
