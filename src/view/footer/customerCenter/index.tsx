@@ -18,7 +18,9 @@ const CustomerCenter = () => {
                     <input type="text" placeholder="제목" />
                     <textarea placeholder="질문을 작성해주세요."></textarea>
                 </div>
-                <button>제출</button>
+                <button type="button" className="qna-btn">
+                    제출
+                </button>
             </form>
             <div className="qna-container">
                 <p>질문 리스트</p>
