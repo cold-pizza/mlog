@@ -233,6 +233,19 @@ app.post("/api/posts/update", (req, res) => {
     });
 });
 
+app.post("/api/help/create", (req, res) => {
+    const { titles, contents, writer, days } = req.body;
+    var sql = "INSERT INTO help VALUES(?, ?, ?, ?, ?) ";
+    connection.query(
+        sql,
+        [titles, contents, writer, "", days],
+        (err, result) => {
+            if (err) console.log(err);
+            res.send("질문이 등록되었습니다.");
+        }
+    );
+});
+
 app.listen(port, () => {
     console.log(`Connect at http://localhost:${port}!!!`);
 });

@@ -3,9 +3,21 @@
 수정날짜: 2023-01-19
 */
 
+import { useState } from "react";
 import Nav from "../../nav";
 import "./style.scss";
+import onChange from "../../../controller/onChange";
+import createHelpQna from "../../../controller/create/createHelpQna";
+import today from "../../../controller/time/today";
 const CustomerCenter = () => {
+    const [helpForm, setHelpForm] = useState({
+        titles: "",
+        contents: "",
+    });
+    const [helpList, setHelpList] = useState([]);
+    const nickName = JSON.parse(localStorage.user).nickName;
+    const days = today();
+
     return (
         <div className="customer-center-container">
             <Nav />
@@ -15,10 +27,31 @@ const CustomerCenter = () => {
             </div>
             <form className="qna-form" action="#">
                 <div className="text-form">
-                    <input type="text" placeholder="제목" />
-                    <textarea placeholder="질문을 작성해주세요."></textarea>
+                    <input
+                        name="titles"
+                        onChange={(e) => onChange(e, helpForm, setHelpForm)}
+                        type="text"
+                        placeholder="제목"
+                    />
+                    <textarea
+                        name="contents"
+                        onChange={(e) => onChange(e, helpForm, setHelpForm)}
+                        placeholder="질문을 작성해주세요."
+                    ></textarea>
                 </div>
-                <button type="button" className="qna-btn">
+                <button
+                    onClick={() => {
+                        createHelpQna(
+                            helpForm.titles,
+                            helpForm.contents,
+                            nickName,
+                            days
+                        );
+                        alert("제출완료.");
+                    }}
+                    type="button"
+                    className="qna-btn"
+                >
                     제출
                 </button>
             </form>

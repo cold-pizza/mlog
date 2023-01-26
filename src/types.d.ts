@@ -134,4 +134,10 @@ export interface Function {
     GetCommentsType: (replyId: string, setState: SetStateAction) => void;
     GetPost: (setState: SetStateAction) => void;
     GetMypostType: (nickName: string, setState: SetStateAction) => void;
+    CreateHelpQnaType: (
+        titles: string,
+        contents: string,
+        writer: string,
+        days: string
+    ) => void;
 }
