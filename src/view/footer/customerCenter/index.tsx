@@ -3,12 +3,13 @@
 수정날짜: 2023-01-19
 */
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Nav from "../../nav";
 import "./style.scss";
 import onChange from "../../../controller/onChange";
 import createHelpQna from "../../../controller/create/createHelpQna";
 import today from "../../../controller/time/today";
+import axios from "axios";
 const CustomerCenter = () => {
     const [helpForm, setHelpForm] = useState({
         titles: "",
@@ -17,6 +18,14 @@ const CustomerCenter = () => {
     const [helpList, setHelpList] = useState([]);
     const nickName = JSON.parse(localStorage.user).nickName;
     const days = today();
+    useEffect(() => {
+        axios
+            .post("/api/help/get")
+            .then((res) => {
+                setHelpList(res.data);
+            })
+            .catch((err) => console.log(err));
+    }, []);
 
     return (
         <div className="customer-center-container">
@@ -58,10 +67,16 @@ const CustomerCenter = () => {
             <div className="qna-container">
                 <p>질문 리스트</p>
                 <div className="qna-list">
-                    <div className="qna-item">
-                        <span className="titles">제목</span>
-                        <span className="writer">작성자</span>
-                    </div>
+                    {helpList
+                        ? helpList.map(({ titles, writer, days }) => {
+                              return (
+                                  <div key={days} className="qna-item">
+                                      <span className="titles">{titles}</span>
+                                      <span className="writer">{writer}</span>
+                                  </div>
+                              );
+                          })
+                        : null}
                 </div>
             </div>
         </div>

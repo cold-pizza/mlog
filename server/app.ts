@@ -246,6 +246,13 @@ app.post("/api/help/create", (req, res) => {
     );
 });
 
+app.post("/api/help/get", (req, res) => {
+    var sql = "SELECT * FROM help";
+    connection.query(sql, [], (err, result) => {
+        res.send(result);
+    });
+});
+
 app.listen(port, () => {
     console.log(`Connect at http://localhost:${port}!!!`);
 });
